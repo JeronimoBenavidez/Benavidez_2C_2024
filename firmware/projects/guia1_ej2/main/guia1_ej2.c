@@ -85,31 +85,42 @@ else if(my_leds->mode == OFF)
 	}
 	else 
 	
-		for(unsigned short i=0; i<my_leds->n_ciclos; ++i)
+		for(size_t i=0; i<my_leds->n_ciclos; ++i)
 		{
 			switch (my_leds->n_led)
 			{
-			case 1:
+			case 1:{
 				LedToggle(LED_1);
-			break;
-				
-			case 2:
-				LedToggle(LED_2);
-			break;
-				
-			case 3:
-				LedToggle(LED_3);
-			break;
-			}
-			for (unsigned short j=0; j < (my_leds->periodo/100); ++j)
+				for (size_t j=0; j < (my_leds->periodo/100); ++j)
 			{
 			vTaskDelay(my_leds->periodo/ portTICK_PERIOD_MS);
-			
+			break;
+				}
+			case 2:
+			{
+				LedToggle(LED_2);
+				for (size_t j=0; j < (my_leds->periodo/100); ++j)
+			{
+			vTaskDelay(my_leds->periodo/ portTICK_PERIOD_MS);
+			break;
+			}}
+			case 3:
+			{
+				LedToggle(LED_3);
+				for (size_t j=0; j < (my_leds->periodo/100); ++j)
+			{
+			vTaskDelay(my_leds->periodo/ portTICK_PERIOD_MS);
+			break;
+			}
 			}
 			
 			
 			}
+			}
 			
+			
+		}
+	
 
 
 
@@ -118,15 +129,14 @@ else if(my_leds->mode == OFF)
 
 
 void app_main(void){
-	
+	LedsInit();
+
 	struct leds ledDePrueba;
-	ledDePrueba.mode = ON ;
+	ledDePrueba.mode = TOGGLE ;
 	ledDePrueba.n_led = 3;
-	ledDePrueba.n_ciclos = 8;
-	ledDePrueba.periodo = 220;
-	LedOff(LED_3);
-	LedOn(LED_2);
-	LedOff(LED_1);
+	ledDePrueba.n_ciclos = 9999;
+	ledDePrueba.periodo = 750;
+	
 
 	
 	funcion_guia1(&ledDePrueba);
