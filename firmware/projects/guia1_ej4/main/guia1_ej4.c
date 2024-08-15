@@ -34,6 +34,6 @@
 
 /*==================[external functions definition]==========================*/
 void app_main(void){
-	printf("Hello world!\n");
+	printf("Hola mundo!\n");
 }
 /*==================[end of file]============================================*/
