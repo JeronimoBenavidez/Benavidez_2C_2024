@@ -75,11 +75,16 @@ void mostrarEnDisplay (uint32_t data, uint8_t digits, gpioConf_t *gpioPinConfig_
 	
 	uint8_t vecAux[3];
 	convertToBcdArray(data, digits, vecAux);
+		for (size_t j = 0; j < 3; ++j)
+	{
+		GPIOInit(gpioPinConfig_2[j].pin, gpioPinConfig_2[j].dir);
+	}
 	for (size_t i = 0; i < 3; ++i)
 	{
 		convertBCDToPINs(vecAux[2-i], gpioPinConfig_1);
-		GPIOOn(gpioPinConfig_2[2-i].pin);
-		GPIOOff(gpioPinConfig_2[2-i].pin);
+	
+		GPIOOn(gpioPinConfig_2[i].pin);
+		GPIOOff(gpioPinConfig_2[i].pin);
 	}
 
 }
