@@ -26,44 +26,44 @@
 /*==================[inclusions]=============================================*/
 #include <stdio.h>
 #include <stdint.h>
+#include "gpio_mcu.h"
 
 /*==================[macros and definitions]=================================*/
 
-
 /*==================[internal data definition]===============================*/
+typedef struct
+{
+	gpio_t pin; /*!< GPIO pin number */
+	io_t dir;	/*!< GPIO direction '0' IN;  '1' OUT*/
+} gpioConf_t;
+
+
+gpioConf_t vec_pines[] = {{GPIO_20, GPIO_OUTPUT},{GPIO_21, GPIO_OUTPUT},{GPIO_22, GPIO_OUTPUT},{GPIO_23, GPIO_OUTPUT}};
 
 /*==================[internal functions declaration]=========================*/
-int8_t convertToBcdArray(uint32_t data, uint8_t digits, uint8_t *bcd_number)
+void convertBCDToPINs(uint8_t digit, gpioConf_t *gpioPinConfig)
 {
-	for (size_t j = 0; j < digits; ++j)
+	
+	uint8_t mask =1;
+	for (size_t j = 0; j < 4; ++j)
 	{
-		bcd_number[j] = data % 10;
-		data = data / 10;
-		
+		GPIOInit(gpioPinConfig[j].pin, gpioPinConfig[j].dir);
 	}
-	return(1);
+	for (size_t i = 0; i<4; ++i)
+	{
+		if((mask & digit) != 0 ){
+			GPIOOn(gpioPinConfig[i].pin);
+		} else {
+			GPIOOff(gpioPinConfig[i].pin);
+		}
+		mask = mask << 1;
+	}
 }
 /*==================[external functions definition]==========================*/
 void app_main(void)
 {
-	uint32_t dato = 12123455;
-	uint8_t digitos = 8 ;
-	uint8_t bcd_numero[8] = {0,0,0,0,1,1,1,1};
-	
-	for (size_t i = 0; i<8 ; ++i)
-	{
-		printf("valor: %d", bcd_numero[i]);
-	}
-	printf(" ");
-	convertToBcdArray(dato, digitos, bcd_numero);
-	for (size_t i = 0; i<8 ; ++i)
-	{
-		printf("valor: %d", bcd_numero[i]);
-	}
-	printf(" ");
 
-
-
-	printf("Hola mundo!\n");
+	convertBCDToPINs (5, vec_pines);
+	printf("Hello world!\n");
 }
 /*==================[end of file]============================================*/
