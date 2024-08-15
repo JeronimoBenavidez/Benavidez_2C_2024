@@ -37,7 +37,9 @@ typedef struct
 } gpioConf_t;
 
 
-gpioConf_t vec_pines[] = {{GPIO_20, GPIO_OUTPUT},{GPIO_21, GPIO_OUTPUT},{GPIO_22, GPIO_OUTPUT},{GPIO_23, GPIO_OUTPUT}};
+gpioConf_t vec_pines_1[] = {{GPIO_20, GPIO_OUTPUT},{GPIO_21, GPIO_OUTPUT},{GPIO_22, GPIO_OUTPUT},{GPIO_23, GPIO_OUTPUT}};
+gpioConf_t vec_pines_2[] = {{GPIO_19, GPIO_OUTPUT},{GPIO_18, GPIO_OUTPUT},{GPIO_9, GPIO_OUTPUT}};
+
 /*==================[internal functions declaration]=========================*/
 int8_t convertToBcdArray(uint32_t data, uint8_t digits, uint8_t *bcd_number)
 {
@@ -53,7 +55,7 @@ int8_t convertToBcdArray(uint32_t data, uint8_t digits, uint8_t *bcd_number)
 void convertBCDToPINs(uint8_t digit, gpioConf_t *gpioPinConfig)
 {
 	
-	uint8_t mask =1;
+	uint8_t mask = 1;
 	for (size_t j = 0; j < 4; ++j)
 	{
 		GPIOInit(gpioPinConfig[j].pin, gpioPinConfig[j].dir);
@@ -68,8 +70,27 @@ void convertBCDToPINs(uint8_t digit, gpioConf_t *gpioPinConfig)
 		mask = mask << 1;
 	}
 }
+
+void mostrarEnDisplay (uint32_t data, uint8_t digits, gpioConf_t *gpioPinConfig_1, gpioConf_t *gpioPinConfig_2){
+	
+	uint8_t vecAux[3];
+	convertToBcdArray(data, digits, vecAux);
+	for (size_t i = 0; i < 3; ++i)
+	{
+		convertBCDToPINs(vecAux[2-i], gpioPinConfig_1);
+		GPIOOn(gpioPinConfig_2[2-i].pin);
+		GPIOOff(gpioPinConfig_2[2-i].pin);
+	}
+
+}
+
+
 /*==================[external functions definition]==========================*/
 void app_main(void){
+	uint32_t datos = 420;
+	uint8_t digitos = 3;
+	
+	mostrarEnDisplay (datos, digitos,vec_pines_1, vec_pines_2);
 	printf("Hello world!\n");
 }
 /*==================[end of file]============================================*/
