@@ -29,6 +29,7 @@
 
 /*==================[macros and definitions]=================================*/
 
+
 /*==================[internal data definition]===============================*/
 
 /*==================[internal functions declaration]=========================*/
@@ -45,6 +46,24 @@ int8_t convertToBcdArray(uint32_t data, uint8_t digits, uint8_t *bcd_number)
 /*==================[external functions definition]==========================*/
 void app_main(void)
 {
+	uint32_t dato = 12123455;
+	uint8_t digitos = 8 ;
+	uint8_t bcd_numero[8] = {0,0,0,0,1,1,1,1};
+	
+	for (size_t i = 0; i<8 ; ++i)
+	{
+		printf(bcd_numero[i]);
+	}
+	printf("' '");
+	convertToBcdArray(dato, digitos, bcd_numero);
+	for (size_t i = 0; i<8 ; ++i)
+	{
+		printf(bcd_numero[i]);
+	}
+	printf("' '");
+
+
+
 	printf("Hola mundo!\n");
 }
 /*==================[end of file]============================================*/
