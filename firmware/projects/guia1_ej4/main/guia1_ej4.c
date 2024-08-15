@@ -26,14 +26,25 @@
 /*==================[inclusions]=============================================*/
 #include <stdio.h>
 #include <stdint.h>
+
 /*==================[macros and definitions]=================================*/
 
 /*==================[internal data definition]===============================*/
 
 /*==================[internal functions declaration]=========================*/
-
+int8_t convertToBcdArray(uint32_t data, uint8_t digits, uint8_t *bcd_number)
+{
+	for (size_t j = 0; j < digits; ++j)
+	{
+		bcd_number[j] = data % 10;
+		data = data / 10;
+		
+	}
+	return(1);
+}
 /*==================[external functions definition]==========================*/
-void app_main(void){
+void app_main(void)
+{
 	printf("Hola mundo!\n");
 }
 /*==================[end of file]============================================*/
