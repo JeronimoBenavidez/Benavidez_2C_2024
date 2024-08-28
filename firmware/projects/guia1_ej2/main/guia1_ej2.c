@@ -1,10 +1,11 @@
-/*! @mainpage Template
+/*! @mainpage Ejercicio 3 de la guia de trabajo: proyecto 1
  *
- * @section genDesc General Description
+ * @section Programar según diagrama en bloque
  *
- * This section describes how the program works.
+ * Realizo un programa que permita satisfacer el diagrama del ejercicio 3
+ * de "guia de trabajo:proyecto 1" 
  *
- * <a href="https://drive.google.com/...">Operation Example</a>
+ * Resultado en la carpeta de imagenes del repositorio
  *
  * @section hardConn Hardware Connection
  *
@@ -13,16 +14,17 @@
  * | 	PIN_X	 	| 	GPIO_X		|
  *
  *
- * @section changelog Changelog
+ * @section Modificaciones
  *
- * |   Date	    | Description                                    |
- * |:----------:|:-----------------------------------------------|
- * | 8/08/2024 | Document creation		                         |
+ * |   Date	    | Description                                        |
+ * |:----------:|:---------------------------------------------------|
+ * | 12/09/2023 | Document creation		                             |
+ * | 08/08/2024 | Modificaciones de la guia sobre el codigo original |
+ * | 28/08/2024 | Documentación		                                 |
  *
- * @author Jerónimo Benavidez (jeronimo.benavidez@ingenieria.uner.edu.ar)
+ * @author Benavidez Jerónimo (Benavidez.Jeronimo@ingenieria.uner.edu.ar)
  *
  */
-
 /*==================[inclusions]=============================================*/
 #include <stdio.h>
 #include <stdint.h>
@@ -34,24 +36,24 @@
 /*==================[macros and definitions]=================================*/
 struct leds
 {
-    uint8_t mode;         //ON, OFF, TOGGLE
-	uint8_t n_led;        //indica el número de led a controlar
-	uint8_t n_ciclos;     //indica la cantidad de ciclos de ncendido/apagado
-	uint16_t periodo;     //indica el tiempo de cada ciclo
-} my_leds; 	
+    uint8_t mode;         /*ON, OFF, TOGGLE                                  */
+	uint8_t n_led;        /*indica el número de led a controlar				 */
+	uint8_t n_ciclos;     /*indica la cantidad de ciclos de ncendido/apagado */
+	uint16_t periodo;     /*indica el tiempo de cada ciclo                   */
+} my_leds; 	/* creo una variable tipo leds llamada my_leds */
 /*==================[internal data definition]===============================*/
 
-#define ON 1
-#define OFF 2
+#define ON 1						/*le asigno valores a ON, OFF y TOGGLE   */
+#define OFF 2						/* para trabajarlo en el código          */
 #define TOGGLE 3
 
 /*==================[internal functions declaration]=========================*/
 void funcion_guia1(struct leds* my_leds){
 
 
-if (my_leds->mode == ON){
+if (my_leds->mode == ON){				/* primer bloque del diagrama */
 	
-	switch (my_leds->n_led)
+	switch (my_leds->n_led)				/* si se cumple el primer bloque*/
 	{
 		case 1:
 			LedOn(LED_1);
@@ -66,7 +68,7 @@ if (my_leds->mode == ON){
 		break;
 	}	
 }
-else if(my_leds->mode == OFF)
+else if(my_leds->mode == OFF)			/* si no se cumple paso al siguiente bloque*/
 	{
 		switch (my_leds->n_led)
 	{
@@ -83,11 +85,11 @@ else if(my_leds->mode == OFF)
 			break;
 	}	
 	}
-	else 
+	else                                /* si éste tampoco se cumple inicio el bucle*/
 	
 		for(size_t i=0; i<my_leds->n_ciclos; ++i)
 		{
-			switch (my_leds->n_led)
+			switch (my_leds->n_led)	 	/* cambio el estado del LED que corresponda */
 			{
 			case 1:{
 				LedToggle(LED_1);
@@ -128,7 +130,7 @@ else if(my_leds->mode == OFF)
 /*==================[external functions definition]==========================*/
 
 
-void app_main(void){
+void app_main(void){           /* verifico a modo de prueba si funciona */
 	LedsInit();
 
 	struct leds ledDePrueba;

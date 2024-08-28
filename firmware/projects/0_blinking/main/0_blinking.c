@@ -22,21 +22,21 @@
 #include "freertos/task.h"
 #include "led.h"
 /*==================[macros and definitions]=================================*/
-#define CONFIG_BLINK_PERIOD 1000
+#define CONFIG_BLINK_PERIOD 1000  /* defino el periodo de parpadeo */
 /*==================[internal data definition]===============================*/
 
 /*==================[internal functions declaration]=========================*/
 
 /*==================[external functions definition]==========================*/
 void app_main(void){
-    LedsInit();
-    while(true){
-        printf("LED ON\n");
-        LedOn(LED_1);
-        vTaskDelay(CONFIG_BLINK_PERIOD / portTICK_PERIOD_MS);
-        printf("LED OFF\n");
-        LedOff(LED_1);
-        vTaskDelay(CONFIG_BLINK_PERIOD / portTICK_PERIOD_MS);
+    LedsInit();      /* inicializo el led*/
+    while(true){     /* creo un ciclo while que siempre resive true para buclear*/
+        printf("LED ON\n");  
+        LedOn(LED_1);   /* prendo el led*/
+        vTaskDelay(CONFIG_BLINK_PERIOD / portTICK_PERIOD_MS);  /* espero un tiempo*/
+        printf("LED OFF\n"); 
+        LedOff(LED_1);  /* apago el led*/
+        vTaskDelay(CONFIG_BLINK_PERIOD / portTICK_PERIOD_MS); /* espero otro tiempo*/
     }
 }
 /*==================[end of file]============================================*/

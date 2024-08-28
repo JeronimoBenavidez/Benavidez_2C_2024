@@ -1,10 +1,10 @@
-/*! @mainpage Template
+/*! @mainpage Ejercicio 4 de la guia de trabajo: proyecto 1
  *
- * @section genDesc General Description
+ * @section convierto de BDC a Array
  *
- * This section describes how the program works.
- *
- * <a href="https://drive.google.com/...">Operation Example</a>
+ * El programa recibe un dato BCD de 32 bits y lo convierto en un arreglo de n dígitos
+ * 
+ * Por ejemplo: si recibo el número 5867990, creo un array [5,8,6,7,9,9,0]
  *
  * @section hardConn Hardware Connection
  *
@@ -13,16 +13,17 @@
  * | 	PIN_X	 	| 	GPIO_X		|
  *
  *
- * @section changelog Changelog
+ * @section Modificaciones
  *
- * |   Date	    | Description                                    |
- * |:----------:|:-----------------------------------------------|
- * | 12/09/2023 | Document creation		                         |
+ * |   Date	    | Description                                        |
+ * |:----------:|:---------------------------------------------------|
+ * | 12/09/2023 | Document creation		                             |
+ * | 15/08/2024 | Modificaciones de la guia sobre el codigo original |
+ * | 28/08/2024 | Documentación		                                 |
  *
- * @author Albano Peñalva (albano.penalva@uner.edu.ar)
+ * @author Benavidez Jerónimo (Benavidez.Jeronimo@ingenieria.uner.edu.ar)
  *
  */
-
 /*==================[inclusions]=============================================*/
 #include <stdio.h>
 #include <stdint.h>
@@ -33,18 +34,18 @@
 /*==================[internal data definition]===============================*/
 
 /*==================[internal functions declaration]=========================*/
-int8_t convertToBcdArray(uint32_t data, uint8_t digits, uint8_t *bcd_number)
+int8_t convertToBcdArray(uint32_t data, uint8_t digits, uint8_t *bcd_number) /* creo la función*/
 {
-	for (size_t j = 0; j < digits; ++j)
-	{
-		bcd_number[j] = data % 10;
-		data = data / 10;
-		
+	for (size_t j = 0; j < digits; ++j)						/* Hago un ciclo que depende de la cantidad*/
+	{														/*de dígitos.                              */
+		bcd_number[j] = data % 10;							/* Utilizo la operación resto por 10 para  */
+		data = data / 10;									/*para extraer cada dígito del valor base10*/
+															/*y luego modifico data con el siguiente digito.*/
 	}
 	return(1);
 }
 /*==================[external functions definition]==========================*/
-void app_main(void)
+void app_main(void)											/* prueba de la función  */
 {
 	uint32_t dato = 12123455;
 	uint8_t digitos = 8 ;

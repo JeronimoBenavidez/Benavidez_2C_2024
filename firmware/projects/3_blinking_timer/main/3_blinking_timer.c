@@ -4,16 +4,16 @@
  *
  * This example makes LED_1 and LED_2 blink at different rates, using FreeRTOS tasks and timer interrupts.
  * 
- * @section changelog Changelog
+ * @section Modificaciones
  *
- * |   Date	    | Description                                    |
- * |:----------:|:-----------------------------------------------|
- * | 12/09/2023 | Document creation		                         |
+ * |   Date	    | Description                                        |
+ * |:----------:|:---------------------------------------------------|
+ * | 12/09/2023 | Document creation		                             |
+ * | 28/08/2024 | Documentación		                                 |
  *
- * @author Albano Peñalva (albano.penalva@uner.edu.ar)
+ * @author Benavidez Jerónimo (Benavidez.Jeronimo@ingenieria.uner.edu.ar)
  *
  */
-
 /*==================[inclusions]=============================================*/
 #include <stdio.h>
 #include <stdint.h>

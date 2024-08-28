@@ -6,10 +6,11 @@
  *
  * @section Modificaciones
  *
- * |   Date	    | Description                                    |
- * |:----------:|:-----------------------------------------------|
- * | 12/09/2023 | Document creation		                         |
- * | 28/08/2024 | Documentación		                         |
+ * |   Date	    | Description                                        |
+ * |:----------:|:---------------------------------------------------|
+ * | 12/09/2023 | Document creation		                             |
+ * | 01/08/2024 | Modificaciones de la guia sobre el codigo original |
+ * | 28/08/2024 | Documentación		                                 |
  *
  * @author Benavidez Jerónimo (Benavidez.Jeronimo@ingenieria.uner.edu.ar)
  *
@@ -31,23 +32,23 @@
 
 /*==================[external functions definition]==========================*/
 void app_main(void){
-	uint8_t teclas;
-	LedsInit();
-	SwitchesInit();
+	uint8_t teclas; 
+	LedsInit();          /* inicializo los leds*/
+	SwitchesInit();      /* inicializo los switches*/
     while(1)    {
-    	teclas  = SwitchesRead();
-		printf("se apreta tecla %d \r \n" , teclas);
-    	switch(teclas){
+    	teclas  = SwitchesRead();                          /* asigno a una variable teclas el valor */
+		printf("se apreta tecla %d \r \n" , teclas);}      /* de un switch para saber cual aprieto  */
+    	switch(teclas){									/* dependiendo de qué tecla apriente selecciono*/
     		case SWITCH_1:
-    			LedToggle(LED_1);
+    			LedToggle(LED_1);						/*cambio el estado del led en cuestión*/
     		break;
     		case SWITCH_2:
     			LedToggle(LED_2);
     		break;
-			case SWITCH_1 | SWITCH_2:
+			case SWITCH_1 | SWITCH_2:   				/* si me apretan los dos a la vez, cambio el estado del 3*/
 				LedToggle(LED_3);
 			break;
-			case SWITCH_1 & SWITCH_2:
+			case SWITCH_1 & SWITCH_2:                  /* si no apretan, me aseguro de tener apagados todos los led*/
 				LedOff(LED_1);
 				LedOff(LED_2);
 				LedOff(LED_3);
@@ -56,6 +57,6 @@ void app_main(void){
 	    
 		
 	
-		vTaskDelay(CONFIG_BLINK_PERIOD / portTICK_PERIOD_MS);
+		vTaskDelay(CONFIG_BLINK_PERIOD / portTICK_PERIOD_MS); /* el delay */
 	}
 }
