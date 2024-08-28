@@ -1,16 +1,17 @@
 /*! @mainpage Blinking
  *
- * \section genDesc General Description
+ * \section Parpadeo del led
  *
- * This example makes LED_1 blink.
+ * Hacemos parpadear el led 1
  *
- * @section changelog Changelog
+ * @section modificaciones
  *
  * |   Date	    | Description                                    |
  * |:----------:|:-----------------------------------------------|
  * | 12/09/2023 | Document creation		                         |
+ * | 28/08/2024 | Documentación	                         |
  *
- * @author Albano Peñalva (albano.penalva@uner.edu.ar)
+ * @author Benavidez Jerónimo (Benavidez.Jeronimo@ingenieria.uner.edu.ar)
  *
  */
 
