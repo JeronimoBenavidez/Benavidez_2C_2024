@@ -1,16 +1,17 @@
 /*! @mainpage Blinking switch
  *
- * \section genDesc General Description
+ * \section Parpadeo con switches
  *
- * This example makes LED_1 and LED_2 blink if SWITCH_1 or SWITCH_2 are pressed.
+ * Prendemos y apagamos los led 1 y 2 dependiendo si apretamos el switch que les corresponden
  *
- * @section changelog Changelog
+ * @section Modificaciones
  *
  * |   Date	    | Description                                    |
  * |:----------:|:-----------------------------------------------|
  * | 12/09/2023 | Document creation		                         |
+ * | 28/08/2024 | Documentación		                         |
  *
- * @author Albano Peñalva (albano.penalva@uner.edu.ar)
+ * @author Benavidez Jerónimo (Benavidez.Jeronimo@ingenieria.uner.edu.ar)
  *
  */
 
@@ -23,7 +24,7 @@
 #include "led.h"
 #include "switch.h"
 /*==================[macros and definitions]=================================*/
-#define CONFIG_BLINK_PERIOD 250
+#define CONFIG_BLINK_PERIOD 250      /* defino un tiempo para el periodo de parpadeo */
 /*==================[internal data definition]===============================*/
 
 /*==================[internal functions declaration]=========================*/
