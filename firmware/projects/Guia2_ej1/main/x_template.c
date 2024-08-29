@@ -1,4 +1,4 @@
-/*! @mainpage Template
+/*! @mainpage Ejercicio 1 Guia de trabajo: proyecto 2
  *
  * @section genDesc General Description
  *
@@ -17,9 +17,9 @@
  *
  * |   Date	    | Description                                    |
  * |:----------:|:-----------------------------------------------|
- * | 12/09/2023 | Document creation		                         |
+ * | 29/08/2024 | Creación en  clase                             |
  *
- * @author Albano Peñalva (albano.penalva@uner.edu.ar)
+ * @author Benavidez Jerónimo (benavidez.jeronimo@ingenieria.uner.edu.ar)
  *
  */
 
