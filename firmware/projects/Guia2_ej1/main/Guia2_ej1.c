@@ -26,6 +26,8 @@
 /*==================[inclusions]=============================================*/
 #include <stdio.h>
 #include <stdint.h>
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
 /*==================[macros and definitions]=================================*/
 
 /*==================[internal data definition]===============================*/
