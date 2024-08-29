@@ -70,7 +70,6 @@ my_leds;
 /** @fn Función Guía 1
 * @brief ésta función irá haciendo comparaciones para prender, apagar o titilar el led que corresponda
 */
-
 void funcion_guia1(struct leds* my_leds){
 
 
