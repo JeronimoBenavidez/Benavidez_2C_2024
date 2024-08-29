@@ -39,10 +39,10 @@ typedef struct
 } gpioConf_t;
 
 
-gpioConf_t vec_pines_1[] = {{GPIO_20, GPIO_OUTPUT},{GPIO_21, GPIO_OUTPUT},		/*Creo vector de pines para el dígito*/
+gpioConf_t vec_pines_1[] = {{GPIO_20, GPIO_OUTPUT},{GPIO_21, GPIO_OUTPUT},		/*!<Creo vector de pines para el dígito*/
 						{GPIO_22, GPIO_OUTPUT},{GPIO_23, GPIO_OUTPUT}};
-gpioConf_t vec_pines_2[] = {{GPIO_19, GPIO_OUTPUT},{GPIO_18, GPIO_OUTPUT},		/*Creo vector de pines para asignar la*/
-						{GPIO_9, GPIO_OUTPUT}};									/* posición del dígito*/
+gpioConf_t vec_pines_2[] = {{GPIO_19, GPIO_OUTPUT},{GPIO_18, GPIO_OUTPUT},		/*!<Creo vector de pines para asignar la posición del dígito*/
+						{GPIO_9, GPIO_OUTPUT}};									
 
 /*==================[internal functions declaration]=========================*/
 int8_t convertToBcdArray(uint32_t data, uint8_t digits, uint8_t *bcd_number)	/* creo función para extraer */
