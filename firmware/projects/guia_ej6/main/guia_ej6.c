@@ -72,7 +72,7 @@ void convertBCDToPINs(uint8_t digit, gpioConf_t *gpioPinConfig)			/* Convierto l
 		} else {
 			GPIOOff(gpioPinConfig[i].pin);
 		}
-		mask = mask << 1;
+		mask = mask << 1; 	/* corro la máscara para la siguiente comparación*/
 	}
 }
 
