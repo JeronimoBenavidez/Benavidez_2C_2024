@@ -40,10 +40,12 @@ typedef struct
 	io_t dir;	/*!< GPIO direction '0' IN;  '1' OUT*/
 } gpioConf_t;
 
-
-gpioConf_t vec_pines[] = {{GPIO_20, GPIO_OUTPUT},				/* 	 Creo un vector de pines para     */
-						{GPIO_21, GPIO_OUTPUT},					/* posteriormente asignar cada dígito */
-						{GPIO_22, GPIO_OUTPUT},					/* del binario que corresponde.       */
+/** @def vec_pines
+*	@brief Creo un vector de pines para posteriormente asignar cada dígito del binario que corresponde
+*/
+gpioConf_t vec_pines[] = {{GPIO_20, GPIO_OUTPUT},				
+						{GPIO_21, GPIO_OUTPUT},					
+						{GPIO_22, GPIO_OUTPUT},					
 						{GPIO_23, GPIO_OUTPUT}};  
 
 /*==================[internal functions declaration]=========================*/
