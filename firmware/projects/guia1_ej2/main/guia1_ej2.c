@@ -36,18 +36,41 @@
 /*==================[macros and definitions]=================================*/
 struct leds
 {
-    uint8_t mode;         /*ON, OFF, TOGGLE                                  */
-	uint8_t n_led;        /*indica el número de led a controlar				 */
-	uint8_t n_ciclos;     /*indica la cantidad de ciclos de ncendido/apagado */
-	uint16_t periodo;     /*indica el tiempo de cada ciclo                   */
-} my_leds; 	/* creo una variable tipo leds llamada my_leds */
-/*==================[internal data definition]===============================*/
+	 /*ON, OFF, TOGGLE                                  */
+    uint8_t mode;      
 
-#define ON 1						/*le asigno valores a ON, OFF y TOGGLE   */
-#define OFF 2						/* para trabajarlo en el código          */
+     /*indica el número de led a controlar				 */
+	uint8_t n_led;        
+
+	 /*indica la cantidad de ciclos de ncendido/apagado */
+	uint8_t n_ciclos;  
+
+	/*indica el tiempo de cada ciclo                   */  
+	uint16_t periodo;     
+} 
+/* creo una variable tipo leds llamada my_leds */
+my_leds; 	
+/*==================[internal data definition]===============================*/
+/** @def ON
+*	@brief Le asigno el valor 1 a ON
+*/
+#define ON 1					
+
+/** @def OFF
+*	@brief Le asigno el valor 2 a OFF
+*/
+#define OFF 2					
+/** @def TOGGLE
+*	@brief Le asigno el valor 3 a TOGGLE
+*/
 #define TOGGLE 3
 
 /*==================[internal functions declaration]=========================*/
+
+/** @fn Función Guía 1
+* @brief ésta función irá haciendo comparaciones para prender, apagar o titilar el led que corresponda
+*/
+
 void funcion_guia1(struct leds* my_leds){
 
 
@@ -129,7 +152,9 @@ else if(my_leds->mode == OFF)			/* si no se cumple paso al siguiente bloque*/
 }
 /*==================[external functions definition]==========================*/
 
-
+/** @fn código de prueba
+* @brief pruebo la función
+*/
 void app_main(void){           /* verifico a modo de prueba si funciona */
 	LedsInit();
 
