@@ -67,8 +67,7 @@ static void Led2Task(void *pvParameter){
 
 /*==================[external functions definition]==========================*/
 void app_main(void){
-    LedsInit();
-    /* Inicialización de timers */
+    LedsInit();       /* Inicialización de timers */
     timer_config_t timer_led_1 = {
         .timer = TIMER_A,
         .period = CONFIG_BLINK_PERIOD_LED_1_US,
@@ -83,7 +82,7 @@ void app_main(void){
         .param_p = NULL
     };
     TimerInit(&timer_led_2);
-    /* Creación de tareas */
+   /* Creación de tareas */
     xTaskCreate(&Led1Task, "LED_1", 512, NULL, 5, &led1_task_handle);
     xTaskCreate(&Led2Task, "LED_2", 512, NULL, 5, &led2_task_handle);
     /* Inicialización del conteo de timers */
