@@ -23,9 +23,9 @@
 #include "freertos/task.h"
 #include "led.h"
 /*==================[macros and definitions]=================================*/
-#define CONFIG_BLINK_PERIOD_LED_1 1000      /* defino los periodos de parpadeo */
-#define CONFIG_BLINK_PERIOD_LED_2 1500      /* de los 3 leds                   */
-#define CONFIG_BLINK_PERIOD_LED_3 500
+#define CONFIG_BLINK_PERIOD_LED_1 1730      /* defino los periodos de parpadeo */
+#define CONFIG_BLINK_PERIOD_LED_2 1570      /* de los 3 leds                   */
+#define CONFIG_BLINK_PERIOD_LED_3 550
 /*==================[internal data definition]===============================*/
 TaskHandle_t led1_task_handle = NULL;       /* creo 3 variables para manejar con */
 TaskHandle_t led2_task_handle = NULL;       /* con tasks y así conciderarlas como*/
