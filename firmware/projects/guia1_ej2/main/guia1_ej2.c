@@ -22,7 +22,7 @@
  * | 08/08/2024 | Modificaciones de la guia sobre el codigo original |
  * | 28/08/2024 | Documentación		                                 |
  *
- * @author Benavidez Jerónimo (Benavidez.Jeronimo@ingenieria.uner.edu.ar)
+ * @author Benavidez Jerónimo (Jeronimo.benavidez@ingenieria.uner.edu.ar)
  *
  */
 /*==================[inclusions]=============================================*/

@@ -23,7 +23,7 @@
  * |:----------:|:-----------------------------------------------|
  * | 29/08/2024 | Creación en  clase                             |
  *
- * @author Benavidez Jerónimo (benavidez.jeronimo@ingenieria.uner.edu.ar)
+ * @author Benavidez Jerónimo (jeronimo.benavidez@ingenieria.uner.edu.ar)
  *
  */
 

@@ -21,7 +21,7 @@
  * | 22/08/2024 | Modificaciones de la guia sobre el codigo original |
  * | 28/08/2024 | Documentación		                                 |
  *
- * @author Benavidez Jerónimo (Benavidez.Jeronimo@ingenieria.uner.edu.ar)
+ * @author Benavidez Jerónimo (Jeronimo.benavidez@ingenieria.uner.edu.ar)
  *
  */
 
@@ -34,14 +34,14 @@
 /*==================[internal data definition]===============================*/
 typedef struct
 {
-	gpio_t pin; /*!< GPIO pin number */
-	io_t dir;	/*!< GPIO direction '0' IN;  '1' OUT*/
+	gpio_t pin; /* GPIO pin number */
+	io_t dir;	/* GPIO direction '0' IN;  '1' OUT*/
 } gpioConf_t;
 
 
-gpioConf_t vec_pines_1[] = {{GPIO_20, GPIO_OUTPUT},{GPIO_21, GPIO_OUTPUT},		/*!<Creo vector de pines para el dígito*/
+gpioConf_t vec_pines_1[] = {{GPIO_20, GPIO_OUTPUT},{GPIO_21, GPIO_OUTPUT},		/*Creo vector de pines para el dígito*/
 						{GPIO_22, GPIO_OUTPUT},{GPIO_23, GPIO_OUTPUT}};
-gpioConf_t vec_pines_2[] = {{GPIO_19, GPIO_OUTPUT},{GPIO_18, GPIO_OUTPUT},		/*!<Creo vector de pines para asignar la posición del dígito*/
+gpioConf_t vec_pines_2[] = {{GPIO_19, GPIO_OUTPUT},{GPIO_18, GPIO_OUTPUT},		/*Creo vector de pines para asignar la posición del dígito*/
 						{GPIO_9, GPIO_OUTPUT}};									
 
 /*==================[internal functions declaration]=========================*/
