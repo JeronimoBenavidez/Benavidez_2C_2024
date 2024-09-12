@@ -14,8 +14,8 @@
  * | 	+5V	 	    | 	 +5V	    |
  * | 	TRIGGER 	| 	GPIO_2		|
  * | 	ECHO	 	| 	GPIO_3		|
- * 
- * 
+ *
+ *
  *
  * @section changelog Changelog
  *
@@ -33,6 +33,7 @@
 #include <stdbool.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+#include "timer_mcu.h"
 #include "hc_sr04.h"
 #include "lcditse0803.h"
 #include "led.h"
@@ -40,92 +41,120 @@
 /*==================[macros and definitions]=================================*/
 
 /*==================[internal data definition]===============================*/
-TaskHandle_t medir_distancia = NULL;       
-TaskHandle_t leer_teclas = NULL;       
-TaskHandle_t mostrar_distancia = NULL;
+TaskHandle_t medir_distancia_handle = NULL;
+TaskHandle_t mostrar_distancia_handle = NULL;
+
 uint16_t distancia;
-int8_t tecla;
-bool midiendo= true;
+switch_t tecla;
+bool midiendo = true;
 bool congelarPantalla = false;
 /*==================[internal functions declaration]=========================*/
-static void medirDistancia(void *pvParameter) {
-	
-	printf("inicio ciclo while del sensor \n \r" );
-	while(1){
-	//	printf("mido \n \r" );
-		if (midiendo){
-			//printf("asigno medicion a distancia \n \r");
-		distancia=HcSr04ReadDistanceInCentimeters();
-		 
-	} else {};
-	vTaskDelay(1000/ portTICK_PERIOD_MS);}
+
+static void medirDistancia(void *pvParameter)
+{
+
+	printf("inicio ciclo while del sensor \n \r");
+	while (1)
+	{
+		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);   
+		distancia = HcSr04ReadDistanceInCentimeters();
+
+	}
 }
 
 static void leerTeclas(void *pvParameter){
-	
-	printf("inicio ciclo while de teclas \n \r" );
 	while(1){
 	//printf("inicializo el switch \n \r" );
-	            
-	printf("me meto en switch de teclas \n \r" );     
+	ulTaskNotifyTake(pdTRUE, portMAX_DELAY);               
+ 
 	  	switch(SwitchesRead()){									
-    		case SWITCH_1:
-			//printf("cambio variable midiendo \n \r" );
-			midiendo = !midiendo;
-    		break;
     		case SWITCH_2:
 			//printf("cambio variable congelarPantalla \n \r" );
     		congelarPantalla = !congelarPantalla;	
     		break;
-			
-}
-			vTaskDelay(100/ portTICK_PERIOD_MS);
-}}
 
-static void mostrarDistancia(void *pvParameter){
-	
-	//printf("entro en el while de distancia \n \r" );
-	while(1){
-		//printf("entro en el id de leds si midiendo = true \n \r" );
-		if(midiendo){
-		//printf("entro en el if de led si distancia <10 \n \r" );	
-			if(distancia<10){
-				//printf("entré en el if de led si distancia <10 \n \r" );
-				LedOff(LED_1);
-				LedOff(LED_2);
-				LedOff(LED_3);
-			} else if(distancia < 20){
-				//printf("entré en el if de led si distancia <10 \n \r" );
-					LedOn(LED_1);
-					LedOff(LED_2);
-					LedOff(LED_3);
-				} else if (distancia < 30){
-				//	printf("entré en el if de led si distancia <10 \n \r" );
-					LedOn(LED_1);
-					LedOn(LED_2);
-					LedOff(LED_3);
-					} else {LedOn(LED_1);LedOn(LED_2);LedOn(LED_3);}
+}}}
+
+static void mostrarDistancia(void *pvParameter)
+{
+
+	// printf("entro en el while de distancia \n \r" );
+	while (1)
+	{
+		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+		if (distancia < 10)
+		{
+			// printf("entré en el if de led si distancia <10 \n \r" );
+			LedOff(LED_1);
+			LedOff(LED_2);
+			LedOff(LED_3);
 		}
-		//printf("entro en el if del display \n \r");
-		if(!congelarPantalla){
-			//printf("entré en el if del display porque congelarPantalla = false \n \r" );
-		//	printf("inicializo LCD \n \r ");
-			LcdItsE0803Write(distancia);
+		else if (distancia < 20)
+		{
+			// printf("entré en el if de led si distancia <10 \n \r" );
+			LedOn(LED_1);
+			LedOff(LED_2);
+			LedOff(LED_3);
 		}
-	vTaskDelay(100/ portTICK_PERIOD_MS); }
+		else if (distancia < 30)
+		{
+			//	printf("entré en el if de led si distancia <10 \n \r" );
+			LedOn(LED_1);
+			LedOn(LED_2);
+			LedOff(LED_3);
+		}
+		else
+		{
+			LedOn(LED_1);
+			LedOn(LED_2);
+			LedOn(LED_3);
+		}
+		
+		LcdItsE0803Write(distancia);
+	}
 }
+
+void Func_medir(void *param)
+{
+	vTaskNotifyGiveFromISR(medir_distancia_handle, pdFALSE);
+}
+void Func_congelar(void *param)
+{
+	vTaskNotifyGiveFromISR(mostrar_distancia_handle, pdFALSE);
+}
+
 /*==================[external functions definition]==========================*/
-void app_main(void){
-	printf("inicializo sensor HcSr04 \n \r" );
+void app_main(void)
+{
+	timer_config_t timer_medir = {
+		.timer = TIMER_A,
+		.period = 1000,
+		.func_p = Func_medir,
+		.param_p = NULL
+	};
+	TimerInit(&medir_distancia_handle);
+
+timer_config_t timer_mostrar = {
+		.timer = TIMER_B,
+		.period = 100,
+		.func_p = Func_congelar,
+		.param_p = NULL
+	};
+	TimerInit(&mostrar_distancia_handle);
+
+
+	printf("inicializo sensor HcSr04 \n \r");
 	HcSr04Init(GPIO_3, GPIO_2);
 	printf("inicializo el switch \n \r");
 	SwitchesInit();
-	printf("inicializo pantalla \n \r" );
+	printf("inicializo pantalla \n \r");
 	LcdItsE0803Init();
-	printf("inicializo leds \n \r" );
+	printf("inicializo leds \n \r");
 	LedsInit();
-	xTaskCreate(&medirDistancia, "midiendo distancia", 2048, NULL, 5, NULL);   
+	xTaskCreate(&medirDistancia, "midiendo distancia", 2048, NULL, 5, &medir_distancia_handle);
+	xTaskCreate(&mostrarDistancia, "mostrando distancia", 512, NULL, 5, &mostrar_distancia_handle);
     xTaskCreate(&leerTeclas, "leyendo teclas", 2048, NULL, 5,  NULL );  
-    xTaskCreate(&mostrarDistancia, "mostrando distancia", 512, NULL, 5, NULL);   
+	TimerStart(timer_medir.timer);
+    TimerStart(timer_mostrar.timer);
 }
 /*==================[end of file]============================================*/
