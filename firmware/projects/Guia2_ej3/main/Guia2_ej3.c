@@ -38,6 +38,7 @@
 #include "lcditse0803.h"
 #include "led.h"
 #include "switch.h"
+#include "uart_mcu.h"
 /*==================[macros and definitions]=================================*/
 
 /*==================[internal data definition]===============================*/
@@ -52,7 +53,7 @@ bool congelarPantalla = false;
 static void medirDistancia(void *pvParameter)
 {
 
-	printf("inicio ciclo while del sensor \n \r");
+	//printf("inicio ciclo while del sensor \n \r");
 	while (1)
 	{
 
@@ -67,9 +68,7 @@ static void medirDistancia(void *pvParameter)
 
 
 static void mostrarDistancia(void *pvParameter)
-{
-
-	// printf("entro en el while de distancia \n \r" );
+{	// printf("entro en el while de distancia \n \r" );
 	while (1)
 	{
 
@@ -100,9 +99,13 @@ static void mostrarDistancia(void *pvParameter)
 			LedOn(LED_2);
 			LedOn(LED_3);
 		}
+	
 		if(!congelarPantalla){
 			LcdItsE0803Write(distancia);
 		}
+		UartSendString(UART_PC, "La distancia es: \n");
+		//UartSendString(UART_PC, distancia);
+		//UartSendString(UART_PC, " cm \r \n");
 		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
 	}
 }
@@ -128,6 +131,16 @@ void Tecla_congelarPantalla(){
 /*==================[external functions definition]==========================*/
 void app_main(void)
 {
+	serial_config_t my_uart = {
+		.port = UART_PC,
+		.baud_rate = 9600,
+		.func_p = NULL,
+		.param_p = NULL
+
+	};
+	UartInit(&my_uart);
+
+
 	timer_config_t timer_medir = {
 		.timer = TIMER_A,
 		.period = 1000000,
@@ -136,9 +149,9 @@ void app_main(void)
 	};
 	TimerInit(&timer_medir);
 
-timer_config_t timer_mostrar = {
+	timer_config_t timer_mostrar = {
 		.timer = TIMER_B,
-		.period = 1000,
+		.period = 500000,
 		.func_p = Func_congelar,
 		.param_p = NULL
 	};
