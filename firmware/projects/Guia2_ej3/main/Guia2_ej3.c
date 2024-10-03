@@ -44,8 +44,11 @@
 /*==================[internal data definition]===============================*/
 TaskHandle_t medir_distancia_handle = NULL;
 TaskHandle_t mostrar_distancia_handle = NULL;
-TaskHandle_t informar_tecla_handle = NULL;
-uint16_t distancia;
+TaskHandle_t leer_teclas_handle = NULL;
+uint32_t distancia;
+uint8_t tecla;
+
+
 bool midiendo = true;
 bool congelarPantalla = false;
 /*==================[internal functions declaration]=========================*/
@@ -65,11 +68,32 @@ static void medirDistancia(void *pvParameter)
 	}
 }
 
+ void teclasUART()
+{
+	while (1)
+	{	UartReadByte(UART_PC, &tecla );
+		
+		if (tecla == 79)
+		{
+		
+			midiendo = !midiendo;
+		
+		}
+		
+		if (tecla == 72)
+		{
+			congelarPantalla = !congelarPantalla;
+		}
+		
+		tecla = NULL;
 
+	}
+}
 
 static void mostrarDistancia(void *pvParameter)
 {	// printf("entro en el while de distancia \n \r" );
 	while (1)
+	{	if(midiendo == 1)
 	{
 
 		if (distancia < 10)
@@ -104,10 +128,11 @@ static void mostrarDistancia(void *pvParameter)
 			LcdItsE0803Write(distancia);
 		}
 		UartSendString(UART_PC, "La distancia es: \n");
-		//UartSendString(UART_PC, distancia);
-		//UartSendString(UART_PC, " cm \r \n");
+		
+		UartSendString(UART_PC, (char*)UartItoa(distancia, 10));
+		UartSendString(UART_PC, " cm \r \n");
 		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
-	}
+	}}
 }
 
 void Func_medir(void *param)
@@ -118,12 +143,17 @@ void Func_congelar(void *param)
 {
 	vTaskNotifyGiveFromISR(mostrar_distancia_handle, pdFALSE);
 }
-
-void Tecla_midiendo(){
+void leer_teclas(void *param)
+{
+	vTaskNotifyGiveFromISR(leer_teclas_handle, pdFALSE);
+}
+void Tecla_midiendo()
+{
 	
 	midiendo = !midiendo;
 }
-void Tecla_congelarPantalla(){
+void Tecla_congelarPantalla()
+{
 
 	congelarPantalla = !congelarPantalla;
 }
@@ -133,8 +163,8 @@ void app_main(void)
 {
 	serial_config_t my_uart = {
 		.port = UART_PC,
-		.baud_rate = 9600,
-		.func_p = NULL,
+		.baud_rate = 115200,
+		.func_p = teclasUART,
 		.param_p = NULL
 
 	};
@@ -156,6 +186,7 @@ void app_main(void)
 		.param_p = NULL
 	};
 	TimerInit(&timer_mostrar);
+	
 
 
 	printf("inicializo sensor HcSr04 \n \r");
@@ -171,10 +202,12 @@ void app_main(void)
 
 
 	xTaskCreate(&medirDistancia, "midiendo distancia", 2048, NULL, 5, &medir_distancia_handle);
+	
 	xTaskCreate(&mostrarDistancia, "mostrando distancia", 512, NULL, 5, &mostrar_distancia_handle);
     
 	TimerStart(timer_medir.timer);
     TimerStart(timer_mostrar.timer);
+
 
 }
 /*==================[end of file]============================================*/
