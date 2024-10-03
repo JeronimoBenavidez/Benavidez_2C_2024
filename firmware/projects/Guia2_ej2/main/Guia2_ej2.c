@@ -1,4 +1,4 @@
-/*! @mainpage Ejercicio 1 Guia de trabajo: proyecto 2
+/*! @mainpage Ejercicio 2 Guia de trabajo: proyecto 2
  *
  * @section genDesc General Description
  *
@@ -63,7 +63,6 @@ static void medirDistancia(void *pvParameter)
 			ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
 	}
 }
-
 
 
 static void mostrarDistancia(void *pvParameter)
