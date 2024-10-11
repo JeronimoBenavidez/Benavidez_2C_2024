@@ -2,7 +2,8 @@
  *
  * @section genDesc General Description
  *
- * This section describes how the program works.
+ * Este programa mide la distancia utilizando un sensor ultrasónico HC-SR04 y muestra el resultado en un display LCD de tres dígitos.
+ * También controla el estado de tres LEDs según la distancia medida y permite pausar y reanudar la medición mediante botones.
  *
  * <a href="https://drive.google.com/...">Operation Example</a>
  *
@@ -45,9 +46,17 @@ TaskHandle_t leer_teclas = NULL;
 TaskHandle_t mostrar_distancia = NULL;
 uint16_t distancia;
 int8_t tecla;
-bool midiendo= true;
+bool midiendo = true;
 bool congelarPantalla = false;
 /*==================[internal functions declaration]=========================*/
+
+/**
+ * @brief Función que mide la distancia con el sensor HC-SR04.
+ * 
+ * Esta función mide la distancia en centímetros utilizando el sensor
+ * ultrasónico HC-SR04. La medición se almacena en la variable global `distancia`.
+ * 
+ */
 static void medirDistancia(void *pvParameter) {
 	
 	printf("inicio ciclo while del sensor \n \r" );
@@ -61,6 +70,13 @@ static void medirDistancia(void *pvParameter) {
 	vTaskDelay(1000/ portTICK_PERIOD_MS);}
 }
 
+/**
+ * @brief Función que lee el estado de los switches.
+ * 
+ * Esta función lee el estado de los switches conectados y cambia el modo de medición
+ * o congela la pantalla según el botón presionado.
+ * 
+ */
 static void leerTeclas(void *pvParameter){
 	
 	printf("inicio ciclo while de teclas \n \r" );
@@ -82,6 +98,13 @@ static void leerTeclas(void *pvParameter){
 			vTaskDelay(100/ portTICK_PERIOD_MS);
 }}
 
+/**
+ * @brief Función que controla los LEDs y el display.
+ * 
+ * Esta función enciende los LEDs de acuerdo a la distancia medida. También
+ * actualiza el valor mostrado en el display a menos que esté en modo de congelación.
+ * 
+ */
 static void mostrarDistancia(void *pvParameter){
 	
 	//printf("entro en el while de distancia \n \r" );
@@ -115,6 +138,12 @@ static void mostrarDistancia(void *pvParameter){
 	vTaskDelay(100/ portTICK_PERIOD_MS); }
 }
 /*==================[external functions definition]==========================*/
+/**
+ * @brief Función principal del programa.
+ * 
+ * Inicializa los periféricos (sensor, switches, display, LEDs) y crea las tareas
+ * para medir la distancia, leer los botones y mostrar los resultados.
+ */
 void app_main(void){
 	printf("inicializo sensor HcSr04 \n \r" );
 	HcSr04Init(GPIO_3, GPIO_2);
