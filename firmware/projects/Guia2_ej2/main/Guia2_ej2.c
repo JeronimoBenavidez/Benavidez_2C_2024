@@ -2,7 +2,8 @@
  *
  * @section genDesc General Description
  *
- * This section describes how the program works.
+ * Este programa mide la distancia utilizando un sensor ultrasónico HC-SR04 y controla la visualización de la distancia en un display LCD.
+ * También enciende LEDs en función de la distancia medida y permite pausar la medición y congelar la pantalla mediante botones.
  *
  * <a href="https://drive.google.com/...">Operation Example</a>
  *
@@ -49,6 +50,13 @@ bool midiendo = true;
 bool congelarPantalla = false;
 /*==================[internal functions declaration]=========================*/
 
+/**
+ * @brief Función que mide la distancia con el sensor HC-SR04.
+ * 
+ * La función realiza una medición de la distancia en centímetros utilizando el
+ * sensor ultrasónico HC-SR04 y actualiza la variable global `distancia`.
+ * 
+ */
 static void medirDistancia(void *pvParameter)
 {
 
@@ -64,7 +72,13 @@ static void medirDistancia(void *pvParameter)
 	}
 }
 
-
+/**
+ * @brief Función que muestra la distancia y controla los LEDs.
+ * 
+ * Esta función enciende los LEDs de acuerdo a la distancia medida. Además,
+ * muestra el valor de la distancia en el display LCD, a menos que la pantalla esté congelada.
+ * 
+ */
 static void mostrarDistancia(void *pvParameter)
 {
 
@@ -106,25 +120,57 @@ static void mostrarDistancia(void *pvParameter)
 	}
 }
 
+/**
+ * @brief Función de interrupción para el timer de medición.
+ * 
+ * Activa la tarea que mide la distancia cada vez que se cumple el tiempo configurado.
+ * 
+ */
 void Func_medir(void *param)
 {
 	vTaskNotifyGiveFromISR(medir_distancia_handle, pdFALSE);
 }
+
+/**
+ * @brief Función de interrupción para el timer de visualización.
+ * 
+ * Activa la tarea que muestra la distancia cada vez que se cumple el tiempo configurado.
+ * 
+ */
 void Func_congelar(void *param)
 {
 	vTaskNotifyGiveFromISR(mostrar_distancia_handle, pdFALSE);
 }
 
+
+/**
+ * @brief Cambia el estado de la variable `midiendo`.
+ * 
+ * Esta función invierte el valor de la variable `midiendo` cuando se presiona el botón correspondiente.
+ */
 void Tecla_midiendo(){
 	
 	midiendo = !midiendo;
 }
+
+/**
+ * @brief Cambia el estado de la variable `congelarPantalla`.
+ * 
+ * Esta función invierte el valor de la variable `congelarPantalla` cuando se presiona el botón correspondiente.
+ */
 void Tecla_congelarPantalla(){
 
 	congelarPantalla = !congelarPantalla;
 }
 
 /*==================[external functions definition]==========================*/
+/**
+ * @brief Función principal del programa.
+ * 
+ * Inicializa los periféricos (sensor, switches, display, LEDs) y crea las tareas
+ * para medir la distancia y mostrar los resultados. También configura e inicia
+ * dos timers para activar las tareas correspondientes.
+ */
 void app_main(void)
 {
 	timer_config_t timer_medir = {

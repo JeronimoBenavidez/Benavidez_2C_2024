@@ -51,7 +51,10 @@ uint8_t tecla;
 bool midiendo = true;
 bool congelarPantalla = false;
 /*==================[internal functions declaration]=========================*/
-
+/**
+ * @brief Función de tarea que mide la distancia utilizando el sensor ultrasónico.
+ *
+ */
 static void medirDistancia(void *pvParameter)
 {
 
@@ -68,6 +71,11 @@ static void medirDistancia(void *pvParameter)
 	}
 }
 
+/**
+ * @brief Función que maneja la lectura de teclas por UART.
+ * 
+ * Cambia el estado de las banderas `midiendo` y `congelarPantalla` según la tecla ingresada.
+ */
 void teclasUART()
 {
 	while (1)
@@ -89,6 +97,10 @@ void teclasUART()
 	}
 }
 
+/**
+ * @brief Función de tarea que muestra la distancia en el LCD y la transmite por UART.
+ *
+ */
 static void mostrarDistancia(void *pvParameter)
 { // printf("entro en el while de distancia \n \r" );
 	while (1)
@@ -137,23 +149,49 @@ static void mostrarDistancia(void *pvParameter)
 	}
 }
 
+/**
+ * @brief Función que activa la tarea de mostrar distancia desde el temporizador.
+ *
+ */
 void Func_medir(void *param)
 {
 	vTaskNotifyGiveFromISR(medir_distancia_handle, pdFALSE);
 }
+
+/**
+ * @brief Función que activa la tarea de mostrar distancia desde el temporizador.
+ *
+ */
 void Func_congelar(void *param)
 {
 	vTaskNotifyGiveFromISR(mostrar_distancia_handle, pdFALSE);
 }
+
+/**
+ * @brief Función que activa la tarea de mostrar distancia desde el temporizador.
+ *
+ **/
 void leer_teclas(void *param)
 {
 	vTaskNotifyGiveFromISR(leer_teclas_handle, pdFALSE);
 }
+
+/**
+ * @brief Cambia el estado de la variable `midiendo`.
+ * 
+ * Esta función invierte el valor de la variable `midiendo` cuando se presiona el botón correspondiente.
+ */
 void Tecla_midiendo()
 {
 
 	midiendo = !midiendo;
 }
+
+/**
+ * @brief Cambia el estado de la variable `congelarPantalla`.
+ * 
+ * Esta función invierte el valor de la variable `congelarPantalla` cuando se presiona el botón correspondiente.
+ */
 void Tecla_congelarPantalla()
 {
 
@@ -161,6 +199,9 @@ void Tecla_congelarPantalla()
 }
 
 /*==================[external functions definition]==========================*/
+/**
+ * @brief Función principal de la aplicación. Configura los periféricos, tareas y temporizadores.
+ */
 void app_main(void)
 {
 	serial_config_t my_uart = {
