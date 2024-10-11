@@ -1,8 +1,9 @@
-/*! @mainpage Template
+/*! @mainpage Ejercicio 4 - Proyecto 2
  *
  * @section genDesc General Description
  *
- * This section describes how the program works.
+ * El programa mide valores analógicos por CH1 y los grafica en un monitor digital. En particular
+ * se ha simulado un ECG utilizando un BUFFER
  *
  * <a href="https://drive.google.com/...">Operation Example</a>
  *
@@ -10,14 +11,15 @@
  *
  * |    Peripheral  |   ESP32   	|
  * |:--------------:|:--------------|
- * | 	PIN_X	 	| 	GPIO_X		|
+ * |Senial Analog.  | 	CH1 		|
  *
  *
  * @section changelog Changelog
  *
  * |   Date	    | Description                                    |
  * |:----------:|:-----------------------------------------------|
- * | 3/10/2024 | Document creation		                         |
+ * | 3/10/2024  | Document creation		                         |
+ * | 10/10/2024  | Documento terminado	                         |
  *
  * @author Jeronimo Benavidez (jeronimo.benavidez@ingenieria.uner.edu.ar)
  *
@@ -44,6 +46,9 @@ int i=0;
 
 /*==================[internal data definition]===============================*/
 
+/*!
+ * @brief Datos de ECG simulados almacenados en un buffer.
+ */
 const char ecg[BUFFER_SIZE] = {
     76, 77, 78, 77, 79, 86, 81, 76, 84, 93, 85, 80,
     89, 95, 89, 85, 93, 98, 94, 88, 98, 105, 96, 91,
@@ -65,6 +70,11 @@ const char ecg[BUFFER_SIZE] = {
 };
 /*==================[internal functions declaration]=========================*/
 
+/*!
+ * @brief Función que lee valores del potenciómetro en el canal CH1.
+ * 
+ * @return void
+ */
 void leerValoresPote(void *pvParameter)
 {
 	while (1)
@@ -75,6 +85,11 @@ void leerValoresPote(void *pvParameter)
 	}
 }
 
+/*!
+ * @brief Función que envía valores medidos por la UART.
+ * 
+ * @return void
+ */
 void mandarValoresECG(void *pvParameter)
 {
 	while (1)
@@ -90,17 +105,36 @@ void mandarValoresECG(void *pvParameter)
 		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
 	}
 }
+
+/*!
+ * @brief Función de interrupción que notifica a la tarea de envío de valores de ECG.
+ * 
+ * @return void
+ */
 void mandar_ECG(void *param)
 {
 	vTaskNotifyGiveFromISR(mandar_valores_pote_handle, pdFALSE);
 }
 
+/*!
+ * @brief Función de interrupción que notifica a la tarea de lectura del potenciómetro.
+ * 
+ * @return void
+ */
 void leer_pote(void *param)
 {
 	vTaskNotifyGiveFromISR(leer_valores_pote_handle, pdFALSE);
 }
 
 /*==================[external functions definition]==========================*/
+
+/*!
+ * @brief Función principal `app_main` que configura el sistema.
+ * 
+ * Inicializa la UART, los timers para la lectura y envío de datos, y las tareas de FreeRTOS.
+ * 
+ * @return void
+ */
 void app_main(void)
 {
 
