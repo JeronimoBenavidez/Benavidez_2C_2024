@@ -82,6 +82,7 @@ void leerValoresPote(void *pvParameter)
 		AnalogInputReadSingle(CH1, &valorPote);
 		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
 		
+		
 	}
 }
 
