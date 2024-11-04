@@ -1,0 +1,382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.11.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Parcial 4/11/24: Archivo de código fuente D:/Benavidez_2C_2024/firmware/projects/examen_individual/main/examen_individual.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Parcial 4/11/24<span id="projectnumber">&#160;1.0.01</span>
+   </div>
+   <div id="projectbrief">Mafalda quiere andar en bicicleta de forma segura y nos pidió un sistema de alarma y control que utiliza una app movil, un buzzer y unos led aparte de los sensores de ultra sonido y acelerómetro</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.11.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('examen__individual_8c_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">examen_individual.c</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="examen__individual_8c.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">/*==================[inclusions]=============================================*/</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;freertos/FreeRTOS.h&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;freertos/task.h&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;<a class="code" href="timer__mcu_8h.html">timer_mcu.h</a>&quot;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;<a class="code" href="hc__sr04_8h.html">hc_sr04.h</a>&quot;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &quot;<a class="code" href="led_8h.html">led.h</a>&quot;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &quot;<a class="code" href="buzzer_8h.html">buzzer.h</a>&quot;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &quot;<a class="code" href="uart__mcu_8h.html">uart_mcu.h</a>&quot;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &quot;<a class="code" href="analog__io__mcu_8h.html">analog_io_mcu.h</a>&quot;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">/*==================[macros and definitions]=================================*/</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="examen__individual_8c.html#a436494e380b8bd75fcd21c5f00329eb7">   38</a></span><span class="preprocessor">#define CONFIG_BLINK_PERIOD_Alarma1 1000</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="examen__individual_8c.html#a731fc8adcc739358000eb49cbae583ea">   42</a></span><span class="preprocessor">#define CONFIG_BLINK_PERIOD_Alarma2 500</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">/*==================[internal data definition]===============================*/</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="examen__individual_8c.html#a22b7fdfe690c91ee376b6f02d884d5a1">   44</a></span>TaskHandle_t <a class="code hl_variable" href="examen__individual_8c.html#a22b7fdfe690c91ee376b6f02d884d5a1">medir_distancia_handle</a> = <a class="code hl_define" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="examen__individual_8c.html#afbc133f87b9c89eaf02ca52dd841a493">   45</a></span>TaskHandle_t <a class="code hl_variable" href="examen__individual_8c.html#afbc133f87b9c89eaf02ca52dd841a493">mostrar_distancia_handle</a> = <a class="code hl_define" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="examen__individual_8c.html#a3c6041c6812a425617bbab407e850075">   46</a></span>TaskHandle_t <a class="code hl_variable" href="examen__individual_8c.html#a3c6041c6812a425617bbab407e850075">medir_aceleracion_handle</a> = <a class="code hl_define" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="examen__individual_8c.html#aed8c62d53204ef8a2805b06d74721dd9">   47</a></span><a class="code hl_struct" href="structanalog__input__config__t.html">analog_input_config_t</a> <a class="code hl_variable" href="examen__individual_8c.html#aed8c62d53204ef8a2805b06d74721dd9">eje_X</a>, <a class="code hl_variable" href="examen__individual_8c.html#a12a7dce28565806f69a1e5c7c4aeb4a5">eje_Y</a>, <a class="code hl_variable" href="examen__individual_8c.html#a393127cf0392ad79a39452506ce0c880">eje_Z</a>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="examen__individual_8c.html#ac3498e35b62924f5eb79dd0e1f50e031">   48</a></span>uint32_t <a class="code hl_variable" href="examen__individual_8c.html#ac3498e35b62924f5eb79dd0e1f50e031">distancia</a>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="examen__individual_8c.html#a22f9f59a2f1a6aef772ad761ed75dec8">   49</a></span>uint16_t <a class="code hl_variable" href="examen__individual_8c.html#a22f9f59a2f1a6aef772ad761ed75dec8">ac_x</a>, <a class="code hl_variable" href="examen__individual_8c.html#ab92e83622699395d5c78ca6f4007c585">ac_y</a>, <a class="code hl_variable" href="examen__individual_8c.html#a7d68301b409d02804005b33a11b19bad">ac_z</a>, <a class="code hl_variable" href="examen__individual_8c.html#a3779c3fd9b2a571cf769d1ffd291d3e0">variableAuxiliar</a>;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="examen__individual_8c.html#af10e92f548167a6f6dc82d5d64ad5687">   50</a></span><span class="keywordtype">bool</span> <a class="code hl_variable" href="examen__individual_8c.html#af10e92f548167a6f6dc82d5d64ad5687">alarmaLarga</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="examen__individual_8c.html#abf5ce9dddc8d612751ba0f20e8c258de">   51</a></span><span class="keywordtype">bool</span> <a class="code hl_variable" href="examen__individual_8c.html#abf5ce9dddc8d612751ba0f20e8c258de">alarmaCorta</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">/*==================[internal functions declaration]=========================*/</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="foldopen" id="foldopen00060" data-start="{" data-end="}">
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="examen__individual_8c.html#a65af65d819dec3eb41e3c89f609a9fae">   60</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="examen__individual_8c.html#a65af65d819dec3eb41e3c89f609a9fae">medirAceleracion</a>(<span class="keywordtype">void</span> *pvParameter)</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>{</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <a class="code hl_function" href="group___analog___i_o.html#gab5ae00a35744f407072230979e593fd9">AnalogInputReadSingle</a>(<a class="code hl_enumvalue" href="group___analog___i_o.html#gga4ebdf50515e5d73c58c24fd1491770dca703cf81b7a9530ba8650e0ee2f29d68e">CH1</a>, &amp;<a class="code hl_variable" href="examen__individual_8c.html#a22f9f59a2f1a6aef772ad761ed75dec8">ac_x</a>);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <a class="code hl_function" href="group___analog___i_o.html#gab5ae00a35744f407072230979e593fd9">AnalogInputReadSingle</a>(<a class="code hl_enumvalue" href="group___analog___i_o.html#gga4ebdf50515e5d73c58c24fd1491770dcae574b39c34bd88c27ea641014831e53a">CH2</a>, &amp;<a class="code hl_variable" href="examen__individual_8c.html#ab92e83622699395d5c78ca6f4007c585">ac_y</a>);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <a class="code hl_function" href="group___analog___i_o.html#gab5ae00a35744f407072230979e593fd9">AnalogInputReadSingle</a>(<a class="code hl_enumvalue" href="group___analog___i_o.html#gga4ebdf50515e5d73c58c24fd1491770dcaaee6d12bf63ae430250764aa97e9e429">CH3</a>, &amp;<a class="code hl_variable" href="examen__individual_8c.html#a7d68301b409d02804005b33a11b19bad">ac_z</a>);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <a class="code hl_variable" href="examen__individual_8c.html#a3779c3fd9b2a571cf769d1ffd291d3e0">variableAuxiliar</a> = <a class="code hl_variable" href="examen__individual_8c.html#a22f9f59a2f1a6aef772ad761ed75dec8">ac_x</a> + <a class="code hl_variable" href="examen__individual_8c.html#ab92e83622699395d5c78ca6f4007c585">ac_y</a> + <a class="code hl_variable" href="examen__individual_8c.html#a7d68301b409d02804005b33a11b19bad">ac_z</a>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="examen__individual_8c.html#a3779c3fd9b2a571cf769d1ffd291d3e0">variableAuxiliar</a> &gt; 4000)</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    {</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <a class="code hl_function" href="group___u_a_r_t.html#ga60db217694ea24ad75fcedda3336a3a8">UartSendString</a>(<a class="code hl_enumvalue" href="group___u_a_r_t.html#gga6e1a445bae87c4cfd26710dbd4657b77af81669fbb473eedf3d1789fcf08d9056">UART_PC</a>, <span class="stringliteral">&quot;caida detectada\n&quot;</span>);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    }</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    ulTaskNotifyTake(pdTRUE, portMAX_DELAY);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>}</div>
+</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="foldopen" id="foldopen00079" data-start="{" data-end="}">
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="examen__individual_8c.html#a180e56a7c8e9c28a3f818c83cdd4ba40">   79</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="examen__individual_8c.html#a180e56a7c8e9c28a3f818c83cdd4ba40">sonarAlarma</a>(<span class="keywordtype">void</span> *pvParameter)</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>{</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="examen__individual_8c.html#abf5ce9dddc8d612751ba0f20e8c258de">alarmaCorta</a> == <span class="keyword">true</span> &amp;&amp; <a class="code hl_variable" href="examen__individual_8c.html#af10e92f548167a6f6dc82d5d64ad5687">alarmaLarga</a> == <span class="keyword">false</span>)</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    {</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <a class="code hl_function" href="group___b_u_z_z_e_r.html#ga5c945426454a12192b5dd46a36f45310">BuzzerOn</a>();</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        vTaskDelay(<a class="code hl_define" href="examen__individual_8c.html#a436494e380b8bd75fcd21c5f00329eb7">CONFIG_BLINK_PERIOD_Alarma1</a> / portTICK_PERIOD_MS);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <a class="code hl_function" href="group___b_u_z_z_e_r.html#ga5044339a4b4f968150ea884a334ddbd8">BuzzerOff</a>();</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        vTaskDelay(<a class="code hl_define" href="examen__individual_8c.html#a436494e380b8bd75fcd21c5f00329eb7">CONFIG_BLINK_PERIOD_Alarma1</a> / portTICK_PERIOD_MS);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    }</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_variable" href="examen__individual_8c.html#abf5ce9dddc8d612751ba0f20e8c258de">alarmaCorta</a> == <span class="keyword">false</span> &amp;&amp; <a class="code hl_variable" href="examen__individual_8c.html#af10e92f548167a6f6dc82d5d64ad5687">alarmaLarga</a> == <span class="keyword">true</span>)</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    {</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <a class="code hl_function" href="group___b_u_z_z_e_r.html#ga5c945426454a12192b5dd46a36f45310">BuzzerOn</a>();</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        vTaskDelay(<a class="code hl_define" href="examen__individual_8c.html#a731fc8adcc739358000eb49cbae583ea">CONFIG_BLINK_PERIOD_Alarma2</a> / portTICK_PERIOD_MS);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <a class="code hl_function" href="group___b_u_z_z_e_r.html#ga5044339a4b4f968150ea884a334ddbd8">BuzzerOff</a>();</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        vTaskDelay(<a class="code hl_define" href="examen__individual_8c.html#a731fc8adcc739358000eb49cbae583ea">CONFIG_BLINK_PERIOD_Alarma2</a> / portTICK_PERIOD_MS);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    }</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_variable" href="examen__individual_8c.html#abf5ce9dddc8d612751ba0f20e8c258de">alarmaCorta</a> == <span class="keyword">true</span> &amp;&amp; <a class="code hl_variable" href="examen__individual_8c.html#af10e92f548167a6f6dc82d5d64ad5687">alarmaLarga</a> == <span class="keyword">true</span>)</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    {</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <a class="code hl_function" href="group___b_u_z_z_e_r.html#ga5c945426454a12192b5dd46a36f45310">BuzzerOn</a>();</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        vTaskDelay(10000 / portTICK_PERIOD_MS); <span class="comment">// 10 segundos de alarma para mostrar error</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <a class="code hl_function" href="group___b_u_z_z_e_r.html#ga5044339a4b4f968150ea884a334ddbd8">BuzzerOff</a>();</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        vTaskDelay(250 / portTICK_PERIOD_MS);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    }</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_variable" href="examen__individual_8c.html#abf5ce9dddc8d612751ba0f20e8c258de">alarmaCorta</a> == <span class="keyword">false</span> &amp;&amp; <a class="code hl_variable" href="examen__individual_8c.html#af10e92f548167a6f6dc82d5d64ad5687">alarmaLarga</a> == <span class="keyword">false</span>)</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <a class="code hl_function" href="group___b_u_z_z_e_r.html#ga5044339a4b4f968150ea884a334ddbd8">BuzzerOff</a>(); <span class="comment">// por las dudas apago el buffer para evitar sonidos por error</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>}</div>
+</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="foldopen" id="foldopen00111" data-start="{" data-end="}">
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="examen__individual_8c.html#a80c74e9b12a03fdf95ea768647ee35dd">  111</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="examen__individual_8c.html#a80c74e9b12a03fdf95ea768647ee35dd">medirDistancia</a>(<span class="keywordtype">void</span> *pvParameter)</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>{</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="comment">// printf(&quot;inicio ciclo while del sensor \n \r&quot;);</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keywordflow">while</span> (1)</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    {</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <span class="comment">// printf(&quot;asigno medicion a distancia \n \r&quot;);</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        <a class="code hl_variable" href="examen__individual_8c.html#ac3498e35b62924f5eb79dd0e1f50e031">distancia</a> = <a class="code hl_function" href="group___h_c___s_r04.html#ga73a5aaa2183e55d104d4e0c2c435e251">HcSr04ReadDistanceInCentimeters</a>();</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        ulTaskNotifyTake(pdTRUE, portMAX_DELAY);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    }</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>}</div>
+</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="foldopen" id="foldopen00130" data-start="{" data-end="}">
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="examen__individual_8c.html#acac7b6f1f6c6921d702063b349ad541d">  130</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="examen__individual_8c.html#acac7b6f1f6c6921d702063b349ad541d">mostrarDistancia</a>(<span class="keywordtype">void</span> *pvParameter)</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>{</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="keywordflow">while</span> (1)</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    {</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="examen__individual_8c.html#ac3498e35b62924f5eb79dd0e1f50e031">distancia</a> &gt; 5000)</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        {</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>            <a class="code hl_function" href="group___l_e_d.html#ga883021aaef65f080a52b1852172ecbc3">LedOn</a>(<a class="code hl_enumvalue" href="group___l_e_d.html#ggab6831a7d06c0a2bc69f9b024f6445a80a11a9adb9054de1fe01d6a6750075f57b">LED_1</a>);</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>            <a class="code hl_function" href="group___l_e_d.html#ga4fd07c9f7fab15d0d07389a38f4a39d8">LedOff</a>(<a class="code hl_enumvalue" href="group___l_e_d.html#ggab6831a7d06c0a2bc69f9b024f6445a80a00af6b2437d9982f1f125d2cc2537c41">LED_2</a>);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>            <a class="code hl_function" href="group___l_e_d.html#ga4fd07c9f7fab15d0d07389a38f4a39d8">LedOff</a>(<a class="code hl_enumvalue" href="group___l_e_d.html#ggab6831a7d06c0a2bc69f9b024f6445a80a3e1b1af0f74f675e4eb7bd18229adfd3">LED_3</a>);</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>            <a class="code hl_variable" href="examen__individual_8c.html#abf5ce9dddc8d612751ba0f20e8c258de">alarmaCorta</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            <a class="code hl_variable" href="examen__individual_8c.html#af10e92f548167a6f6dc82d5d64ad5687">alarmaLarga</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        }</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_variable" href="examen__individual_8c.html#ac3498e35b62924f5eb79dd0e1f50e031">distancia</a> &gt; 3000)</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        {</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>            <a class="code hl_function" href="group___l_e_d.html#ga883021aaef65f080a52b1852172ecbc3">LedOn</a>(<a class="code hl_enumvalue" href="group___l_e_d.html#ggab6831a7d06c0a2bc69f9b024f6445a80a11a9adb9054de1fe01d6a6750075f57b">LED_1</a>);</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>            <a class="code hl_function" href="group___l_e_d.html#ga883021aaef65f080a52b1852172ecbc3">LedOn</a>(<a class="code hl_enumvalue" href="group___l_e_d.html#ggab6831a7d06c0a2bc69f9b024f6445a80a00af6b2437d9982f1f125d2cc2537c41">LED_2</a>);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>            <a class="code hl_function" href="group___l_e_d.html#ga4fd07c9f7fab15d0d07389a38f4a39d8">LedOff</a>(<a class="code hl_enumvalue" href="group___l_e_d.html#ggab6831a7d06c0a2bc69f9b024f6445a80a3e1b1af0f74f675e4eb7bd18229adfd3">LED_3</a>);</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>            <a class="code hl_variable" href="examen__individual_8c.html#abf5ce9dddc8d612751ba0f20e8c258de">alarmaCorta</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>            <a class="code hl_variable" href="examen__individual_8c.html#af10e92f548167a6f6dc82d5d64ad5687">alarmaLarga</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>            <a class="code hl_function" href="group___u_a_r_t.html#ga60db217694ea24ad75fcedda3336a3a8">UartSendString</a>(<a class="code hl_enumvalue" href="group___u_a_r_t.html#gga6e1a445bae87c4cfd26710dbd4657b77af81669fbb473eedf3d1789fcf08d9056">UART_PC</a>, <span class="stringliteral">&quot;Precaución, vehículo cerca \n&quot;</span>);</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        }</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        {</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>            <a class="code hl_function" href="group___l_e_d.html#ga883021aaef65f080a52b1852172ecbc3">LedOn</a>(<a class="code hl_enumvalue" href="group___l_e_d.html#ggab6831a7d06c0a2bc69f9b024f6445a80a11a9adb9054de1fe01d6a6750075f57b">LED_1</a>);</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>            <a class="code hl_function" href="group___l_e_d.html#ga883021aaef65f080a52b1852172ecbc3">LedOn</a>(<a class="code hl_enumvalue" href="group___l_e_d.html#ggab6831a7d06c0a2bc69f9b024f6445a80a00af6b2437d9982f1f125d2cc2537c41">LED_2</a>);</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>            <a class="code hl_function" href="group___l_e_d.html#ga883021aaef65f080a52b1852172ecbc3">LedOn</a>(<a class="code hl_enumvalue" href="group___l_e_d.html#ggab6831a7d06c0a2bc69f9b024f6445a80a3e1b1af0f74f675e4eb7bd18229adfd3">LED_3</a>);</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>            <a class="code hl_variable" href="examen__individual_8c.html#af10e92f548167a6f6dc82d5d64ad5687">alarmaLarga</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>            <a class="code hl_variable" href="examen__individual_8c.html#abf5ce9dddc8d612751ba0f20e8c258de">alarmaCorta</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>            <a class="code hl_function" href="group___u_a_r_t.html#ga60db217694ea24ad75fcedda3336a3a8">UartSendString</a>(<a class="code hl_enumvalue" href="group___u_a_r_t.html#gga6e1a445bae87c4cfd26710dbd4657b77af81669fbb473eedf3d1789fcf08d9056">UART_PC</a>, <span class="stringliteral">&quot;PELIGRO! vehículo cerca \n&quot;</span>);</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        }</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        ulTaskNotifyTake(pdTRUE, portMAX_DELAY);</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    }</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>}</div>
+</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="foldopen" id="foldopen00173" data-start="{" data-end="}">
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno"><a class="line" href="examen__individual_8c.html#ad757a7146285c1b44b59a9b5894eba96">  173</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="examen__individual_8c.html#ad757a7146285c1b44b59a9b5894eba96">Func_medir</a>(<span class="keywordtype">void</span> *param)</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>{</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    vTaskNotifyGiveFromISR(<a class="code hl_variable" href="examen__individual_8c.html#a22b7fdfe690c91ee376b6f02d884d5a1">medir_distancia_handle</a>, pdFALSE);</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>}</div>
+</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="foldopen" id="foldopen00183" data-start="{" data-end="}">
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno"><a class="line" href="examen__individual_8c.html#a243f46b30de257df617537c8197de544">  183</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="examen__individual_8c.html#a243f46b30de257df617537c8197de544">Func_leds</a>(<span class="keywordtype">void</span> *param)</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>{</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    vTaskNotifyGiveFromISR(<a class="code hl_variable" href="examen__individual_8c.html#afbc133f87b9c89eaf02ca52dd841a493">mostrar_distancia_handle</a>, pdFALSE);</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>}</div>
+</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="foldopen" id="foldopen00193" data-start="{" data-end="}">
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno"><a class="line" href="examen__individual_8c.html#a111229f2cf494e3ce57ee6e21a96ca09">  193</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="examen__individual_8c.html#a111229f2cf494e3ce57ee6e21a96ca09">Func_acel</a>(<span class="keywordtype">void</span> *param)</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>{</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    vTaskNotifyGiveFromISR(<a class="code hl_variable" href="examen__individual_8c.html#a3c6041c6812a425617bbab407e850075">medir_aceleracion_handle</a>, pdFALSE);</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>}</div>
+</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="comment">/*==================[external functions definition]==========================*/</span></div>
+<div class="foldopen" id="foldopen00203" data-start="{" data-end="}">
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno"><a class="line" href="examen__individual_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70">  203</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="examen__individual_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70">app_main</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>{</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    <a class="code hl_struct" href="structtimer__config__t.html">timer_config_t</a> timer_medir = {</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>        .<a class="code hl_variable" href="structtimer__config__t.html#ab83043b8038c5e630f6a2a05ea007e49">timer</a> = <a class="code hl_enumvalue" href="group___timer.html#ggacc4e64394d03a6e790f8e52c674534d9a179b1231f027eba52fa4ef94ec174598">TIMER_A</a>,</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        .period = 500000,</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>        .func_p = <a class="code hl_function" href="examen__individual_8c.html#ad757a7146285c1b44b59a9b5894eba96">Func_medir</a>,</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>        .param_p = <a class="code hl_define" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>};</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    <a class="code hl_function" href="group___timer.html#gae8617c0d176463a60441464ad26563f6">TimerInit</a>(&amp;timer_medir);</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    <a class="code hl_struct" href="structtimer__config__t.html">timer_config_t</a> timer_leds = {</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        .<a class="code hl_variable" href="structtimer__config__t.html#ab83043b8038c5e630f6a2a05ea007e49">timer</a> = <a class="code hl_enumvalue" href="group___timer.html#ggacc4e64394d03a6e790f8e52c674534d9a7537925211db58591cb5eeb7ebc7f44f">TIMER_B</a>,</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        .period = 250000,</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        .func_p = <a class="code hl_function" href="examen__individual_8c.html#a243f46b30de257df617537c8197de544">Func_leds</a>,</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>        .param_p = <a class="code hl_define" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>};</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    <a class="code hl_function" href="group___timer.html#gae8617c0d176463a60441464ad26563f6">TimerInit</a>(&amp;timer_leds);</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    <a class="code hl_struct" href="structtimer__config__t.html">timer_config_t</a> timer_acel = {</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>        .<a class="code hl_variable" href="structtimer__config__t.html#ab83043b8038c5e630f6a2a05ea007e49">timer</a> = <a class="code hl_enumvalue" href="group___timer.html#ggacc4e64394d03a6e790f8e52c674534d9a77982cc924eb33d3ea2f8f541f757f9d">TIMER_C</a>,</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>        .period = 10000,</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        .func_p = <a class="code hl_function" href="examen__individual_8c.html#a111229f2cf494e3ce57ee6e21a96ca09">Func_acel</a>,</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>        .param_p = <a class="code hl_define" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>};</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    <a class="code hl_function" href="group___timer.html#gae8617c0d176463a60441464ad26563f6">TimerInit</a>(&amp;timer_acel);</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    <a class="code hl_function" href="group___u_a_r_t.html#ga440f6a03dfd8b310f5fdf42c3bf20c42">UartInit</a>(<a class="code hl_enumvalue" href="group___u_a_r_t.html#gga6e1a445bae87c4cfd26710dbd4657b77af81669fbb473eedf3d1789fcf08d9056">UART_PC</a>);</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    <a class="code hl_struct" href="structserial__config__t.html">serial_config_t</a> my_uart = {</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        .<a class="code hl_variable" href="structserial__config__t.html#a27067c816e8c5402c7be0da9780678b0">port</a> = <a class="code hl_enumvalue" href="group___u_a_r_t.html#gga6e1a445bae87c4cfd26710dbd4657b77af81669fbb473eedf3d1789fcf08d9056">UART_PC</a>,</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>        .baud_rate = 115200,</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        .func_p = <a class="code hl_define" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>,</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>        .param_p = <a class="code hl_define" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>};</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    <a class="code hl_function" href="group___h_c___s_r04.html#ga9d26cc017fe45c607d08231ebffb46c4">HcSr04Init</a>(<a class="code hl_enumvalue" href="group___g_i_o_p.html#ggaf65604147d0244c9b13cfdc865ad5393a426d08ab85ab3aebbb53eed1a32dfb71">GPIO_3</a>, <a class="code hl_enumvalue" href="group___g_i_o_p.html#ggaf65604147d0244c9b13cfdc865ad5393abbea21b656f1917800d9d279b685f38e">GPIO_2</a>);</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    <a class="code hl_function" href="group___l_e_d.html#gacba669c3e8f52e45d1bea50c2e63b250">LedsInit</a>();</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <a class="code hl_function" href="group___b_u_z_z_e_r.html#ga2d103b0bfc6281c22588fb656fb88988">BuzzerInit</a>(<a class="code hl_enumvalue" href="group___g_i_o_p.html#ggaf65604147d0244c9b13cfdc865ad5393a8bdaec9182fb8ab2106d5c67f3eabd2d">GPIO_9</a>);</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    <a class="code hl_function" href="group___analog___i_o.html#ga24ce5556aa4682468220b982f151cdfe">AnalogInputInit</a>(&amp;<a class="code hl_variable" href="examen__individual_8c.html#aed8c62d53204ef8a2805b06d74721dd9">eje_X</a>);</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    <a class="code hl_function" href="group___analog___i_o.html#ga24ce5556aa4682468220b982f151cdfe">AnalogInputInit</a>(&amp;<a class="code hl_variable" href="examen__individual_8c.html#a12a7dce28565806f69a1e5c7c4aeb4a5">eje_Y</a>);</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    <a class="code hl_function" href="group___analog___i_o.html#ga24ce5556aa4682468220b982f151cdfe">AnalogInputInit</a>(&amp;<a class="code hl_variable" href="examen__individual_8c.html#a393127cf0392ad79a39452506ce0c880">eje_Z</a>);</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    <a class="code hl_function" href="group___analog___i_o.html#gab57399e946247652a096a0e2d3a1b69a">AnalogOutputInit</a>();</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    xTaskCreate(&amp;<a class="code hl_function" href="examen__individual_8c.html#a80c74e9b12a03fdf95ea768647ee35dd">medirDistancia</a>, <span class="stringliteral">&quot;midiendo distancia&quot;</span>, 2048, <a class="code hl_define" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>, 5, &amp;<a class="code hl_variable" href="examen__individual_8c.html#a22b7fdfe690c91ee376b6f02d884d5a1">medir_distancia_handle</a>);</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    xTaskCreate(&amp;<a class="code hl_function" href="examen__individual_8c.html#acac7b6f1f6c6921d702063b349ad541d">mostrarDistancia</a>, <span class="stringliteral">&quot;mostrando distancia&quot;</span>, 512, <a class="code hl_define" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>, 5, &amp;<a class="code hl_variable" href="examen__individual_8c.html#afbc133f87b9c89eaf02ca52dd841a493">mostrar_distancia_handle</a>);</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    xTaskCreate(&amp;<a class="code hl_function" href="examen__individual_8c.html#a180e56a7c8e9c28a3f818c83cdd4ba40">sonarAlarma</a>, <span class="stringliteral">&quot;beep beep&quot;</span>, 512, <a class="code hl_define" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>, 5, <a class="code hl_define" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>);</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    xTaskCreate(&amp;<a class="code hl_function" href="examen__individual_8c.html#a65af65d819dec3eb41e3c89f609a9fae">medirAceleracion</a>, <span class="stringliteral">&quot;midiendo aceleracion&quot;</span>, 2048, <a class="code hl_define" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>, 5, &amp;<a class="code hl_variable" href="examen__individual_8c.html#a3c6041c6812a425617bbab407e850075">medir_aceleracion_handle</a>);</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    <a class="code hl_function" href="group___timer.html#ga0b1779c5b8f91cc83c8bfd127071ea2f">TimerStart</a>(timer_medir.<a class="code hl_variable" href="structtimer__config__t.html#ab83043b8038c5e630f6a2a05ea007e49">timer</a>);</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    <a class="code hl_function" href="group___timer.html#ga0b1779c5b8f91cc83c8bfd127071ea2f">TimerStart</a>(timer_leds.<a class="code hl_variable" href="structtimer__config__t.html#ab83043b8038c5e630f6a2a05ea007e49">timer</a>);</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    <a class="code hl_function" href="group___timer.html#ga0b1779c5b8f91cc83c8bfd127071ea2f">TimerStart</a>(timer_acel.<a class="code hl_variable" href="structtimer__config__t.html#ab83043b8038c5e630f6a2a05ea007e49">timer</a>);</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>}</div>
+</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span><span class="comment">/*==================[end of file]============================================*/</span></div>
+<div class="ttc" id="aanalog__io__mcu_8h_html"><div class="ttname"><a href="analog__io__mcu_8h.html">analog_io_mcu.h</a></div></div>
+<div class="ttc" id="abuzzer_8h_html"><div class="ttname"><a href="buzzer_8h.html">buzzer.h</a></div></div>
+<div class="ttc" id="aexamen__individual_8c_html_a111229f2cf494e3ce57ee6e21a96ca09"><div class="ttname"><a href="examen__individual_8c.html#a111229f2cf494e3ce57ee6e21a96ca09">Func_acel</a></div><div class="ttdeci">void Func_acel(void *param)</div><div class="ttdef"><b>Definition</b> <a href="#l00193">examen_individual.c:193</a></div></div>
+<div class="ttc" id="aexamen__individual_8c_html_a12a7dce28565806f69a1e5c7c4aeb4a5"><div class="ttname"><a href="examen__individual_8c.html#a12a7dce28565806f69a1e5c7c4aeb4a5">eje_Y</a></div><div class="ttdeci">analog_input_config_t eje_Y</div><div class="ttdef"><b>Definition</b> <a href="#l00047">examen_individual.c:47</a></div></div>
+<div class="ttc" id="aexamen__individual_8c_html_a180e56a7c8e9c28a3f818c83cdd4ba40"><div class="ttname"><a href="examen__individual_8c.html#a180e56a7c8e9c28a3f818c83cdd4ba40">sonarAlarma</a></div><div class="ttdeci">void sonarAlarma(void *pvParameter)</div><div class="ttdef"><b>Definition</b> <a href="#l00079">examen_individual.c:79</a></div></div>
+<div class="ttc" id="aexamen__individual_8c_html_a22b7fdfe690c91ee376b6f02d884d5a1"><div class="ttname"><a href="examen__individual_8c.html#a22b7fdfe690c91ee376b6f02d884d5a1">medir_distancia_handle</a></div><div class="ttdeci">TaskHandle_t medir_distancia_handle</div><div class="ttdef"><b>Definition</b> <a href="#l00044">examen_individual.c:44</a></div></div>
+<div class="ttc" id="aexamen__individual_8c_html_a22f9f59a2f1a6aef772ad761ed75dec8"><div class="ttname"><a href="examen__individual_8c.html#a22f9f59a2f1a6aef772ad761ed75dec8">ac_x</a></div><div class="ttdeci">uint16_t ac_x</div><div class="ttdef"><b>Definition</b> <a href="#l00049">examen_individual.c:49</a></div></div>
+<div class="ttc" id="aexamen__individual_8c_html_a243f46b30de257df617537c8197de544"><div class="ttname"><a href="examen__individual_8c.html#a243f46b30de257df617537c8197de544">Func_leds</a></div><div class="ttdeci">void Func_leds(void *param)</div><div class="ttdef"><b>Definition</b> <a href="#l00183">examen_individual.c:183</a></div></div>
+<div class="ttc" id="aexamen__individual_8c_html_a3779c3fd9b2a571cf769d1ffd291d3e0"><div class="ttname"><a href="examen__individual_8c.html#a3779c3fd9b2a571cf769d1ffd291d3e0">variableAuxiliar</a></div><div class="ttdeci">uint16_t variableAuxiliar</div><div class="ttdef"><b>Definition</b> <a href="#l00049">examen_individual.c:49</a></div></div>
+<div class="ttc" id="aexamen__individual_8c_html_a393127cf0392ad79a39452506ce0c880"><div class="ttname"><a href="examen__individual_8c.html#a393127cf0392ad79a39452506ce0c880">eje_Z</a></div><div class="ttdeci">analog_input_config_t eje_Z</div><div class="ttdef"><b>Definition</b> <a href="#l00047">examen_individual.c:47</a></div></div>
+<div class="ttc" id="aexamen__individual_8c_html_a3c6041c6812a425617bbab407e850075"><div class="ttname"><a href="examen__individual_8c.html#a3c6041c6812a425617bbab407e850075">medir_aceleracion_handle</a></div><div class="ttdeci">TaskHandle_t medir_aceleracion_handle</div><div class="ttdef"><b>Definition</b> <a href="#l00046">examen_individual.c:46</a></div></div>
+<div class="ttc" id="aexamen__individual_8c_html_a436494e380b8bd75fcd21c5f00329eb7"><div class="ttname"><a href="examen__individual_8c.html#a436494e380b8bd75fcd21c5f00329eb7">CONFIG_BLINK_PERIOD_Alarma1</a></div><div class="ttdeci">#define CONFIG_BLINK_PERIOD_Alarma1</div><div class="ttdef"><b>Definition</b> <a href="#l00038">examen_individual.c:38</a></div></div>
+<div class="ttc" id="aexamen__individual_8c_html_a630544a7f0a2cc40d8a7fefab7e2fe70"><div class="ttname"><a href="examen__individual_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70">app_main</a></div><div class="ttdeci">void app_main(void)</div><div class="ttdoc">Función principal de la aplicación. Configura los periféricos, tareas y temporizadores.</div><div class="ttdef"><b>Definition</b> <a href="#l00203">examen_individual.c:203</a></div></div>
+<div class="ttc" id="aexamen__individual_8c_html_a65af65d819dec3eb41e3c89f609a9fae"><div class="ttname"><a href="examen__individual_8c.html#a65af65d819dec3eb41e3c89f609a9fae">medirAceleracion</a></div><div class="ttdeci">void medirAceleracion(void *pvParameter)</div><div class="ttdef"><b>Definition</b> <a href="#l00060">examen_individual.c:60</a></div></div>
+<div class="ttc" id="aexamen__individual_8c_html_a731fc8adcc739358000eb49cbae583ea"><div class="ttname"><a href="examen__individual_8c.html#a731fc8adcc739358000eb49cbae583ea">CONFIG_BLINK_PERIOD_Alarma2</a></div><div class="ttdeci">#define CONFIG_BLINK_PERIOD_Alarma2</div><div class="ttdef"><b>Definition</b> <a href="#l00042">examen_individual.c:42</a></div></div>
+<div class="ttc" id="aexamen__individual_8c_html_a7d68301b409d02804005b33a11b19bad"><div class="ttname"><a href="examen__individual_8c.html#a7d68301b409d02804005b33a11b19bad">ac_z</a></div><div class="ttdeci">uint16_t ac_z</div><div class="ttdef"><b>Definition</b> <a href="#l00049">examen_individual.c:49</a></div></div>
+<div class="ttc" id="aexamen__individual_8c_html_a80c74e9b12a03fdf95ea768647ee35dd"><div class="ttname"><a href="examen__individual_8c.html#a80c74e9b12a03fdf95ea768647ee35dd">medirDistancia</a></div><div class="ttdeci">void medirDistancia(void *pvParameter)</div><div class="ttdef"><b>Definition</b> <a href="#l00111">examen_individual.c:111</a></div></div>
+<div class="ttc" id="aexamen__individual_8c_html_ab92e83622699395d5c78ca6f4007c585"><div class="ttname"><a href="examen__individual_8c.html#ab92e83622699395d5c78ca6f4007c585">ac_y</a></div><div class="ttdeci">uint16_t ac_y</div><div class="ttdef"><b>Definition</b> <a href="#l00049">examen_individual.c:49</a></div></div>
+<div class="ttc" id="aexamen__individual_8c_html_abf5ce9dddc8d612751ba0f20e8c258de"><div class="ttname"><a href="examen__individual_8c.html#abf5ce9dddc8d612751ba0f20e8c258de">alarmaCorta</a></div><div class="ttdeci">bool alarmaCorta</div><div class="ttdef"><b>Definition</b> <a href="#l00051">examen_individual.c:51</a></div></div>
+<div class="ttc" id="aexamen__individual_8c_html_ac3498e35b62924f5eb79dd0e1f50e031"><div class="ttname"><a href="examen__individual_8c.html#ac3498e35b62924f5eb79dd0e1f50e031">distancia</a></div><div class="ttdeci">uint32_t distancia</div><div class="ttdef"><b>Definition</b> <a href="#l00048">examen_individual.c:48</a></div></div>
+<div class="ttc" id="aexamen__individual_8c_html_acac7b6f1f6c6921d702063b349ad541d"><div class="ttname"><a href="examen__individual_8c.html#acac7b6f1f6c6921d702063b349ad541d">mostrarDistancia</a></div><div class="ttdeci">void mostrarDistancia(void *pvParameter)</div><div class="ttdef"><b>Definition</b> <a href="#l00130">examen_individual.c:130</a></div></div>
+<div class="ttc" id="aexamen__individual_8c_html_ad757a7146285c1b44b59a9b5894eba96"><div class="ttname"><a href="examen__individual_8c.html#ad757a7146285c1b44b59a9b5894eba96">Func_medir</a></div><div class="ttdeci">void Func_medir(void *param)</div><div class="ttdef"><b>Definition</b> <a href="#l00173">examen_individual.c:173</a></div></div>
+<div class="ttc" id="aexamen__individual_8c_html_aed8c62d53204ef8a2805b06d74721dd9"><div class="ttname"><a href="examen__individual_8c.html#aed8c62d53204ef8a2805b06d74721dd9">eje_X</a></div><div class="ttdeci">analog_input_config_t eje_X</div><div class="ttdef"><b>Definition</b> <a href="#l00047">examen_individual.c:47</a></div></div>
+<div class="ttc" id="aexamen__individual_8c_html_af10e92f548167a6f6dc82d5d64ad5687"><div class="ttname"><a href="examen__individual_8c.html#af10e92f548167a6f6dc82d5d64ad5687">alarmaLarga</a></div><div class="ttdeci">bool alarmaLarga</div><div class="ttdef"><b>Definition</b> <a href="#l00050">examen_individual.c:50</a></div></div>
+<div class="ttc" id="aexamen__individual_8c_html_afbc133f87b9c89eaf02ca52dd841a493"><div class="ttname"><a href="examen__individual_8c.html#afbc133f87b9c89eaf02ca52dd841a493">mostrar_distancia_handle</a></div><div class="ttdeci">TaskHandle_t mostrar_distancia_handle</div><div class="ttdef"><b>Definition</b> <a href="#l00045">examen_individual.c:45</a></div></div>
+<div class="ttc" id="agroup___analog___i_o_html_ga24ce5556aa4682468220b982f151cdfe"><div class="ttname"><a href="group___analog___i_o.html#ga24ce5556aa4682468220b982f151cdfe">AnalogInputInit</a></div><div class="ttdeci">void AnalogInputInit(analog_input_config_t *config)</div><div class="ttdoc">Analog input initialization.</div><div class="ttdef"><b>Definition</b> <a href="analog__io__mcu_8c_source.html#l00045">analog_io_mcu.c:45</a></div></div>
+<div class="ttc" id="agroup___analog___i_o_html_gab57399e946247652a096a0e2d3a1b69a"><div class="ttname"><a href="group___analog___i_o.html#gab57399e946247652a096a0e2d3a1b69a">AnalogOutputInit</a></div><div class="ttdeci">void AnalogOutputInit(void)</div><div class="ttdoc">Analog output initialization (DAC)</div><div class="ttdef"><b>Definition</b> <a href="analog__io__mcu_8c_source.html#l00120">analog_io_mcu.c:120</a></div></div>
+<div class="ttc" id="agroup___analog___i_o_html_gab5ae00a35744f407072230979e593fd9"><div class="ttname"><a href="group___analog___i_o.html#gab5ae00a35744f407072230979e593fd9">AnalogInputReadSingle</a></div><div class="ttdeci">void AnalogInputReadSingle(adc_ch_t channel, uint16_t *value)</div><div class="ttdoc">Read single channel.</div><div class="ttdef"><b>Definition</b> <a href="analog__io__mcu_8c_source.html#l00130">analog_io_mcu.c:130</a></div></div>
+<div class="ttc" id="agroup___analog___i_o_html_gga4ebdf50515e5d73c58c24fd1491770dca703cf81b7a9530ba8650e0ee2f29d68e"><div class="ttname"><a href="group___analog___i_o.html#gga4ebdf50515e5d73c58c24fd1491770dca703cf81b7a9530ba8650e0ee2f29d68e">CH1</a></div><div class="ttdeci">@ CH1</div><div class="ttdef"><b>Definition</b> <a href="analog__io__mcu_8h_source.html#l00032">analog_io_mcu.h:32</a></div></div>
+<div class="ttc" id="agroup___analog___i_o_html_gga4ebdf50515e5d73c58c24fd1491770dcaaee6d12bf63ae430250764aa97e9e429"><div class="ttname"><a href="group___analog___i_o.html#gga4ebdf50515e5d73c58c24fd1491770dcaaee6d12bf63ae430250764aa97e9e429">CH3</a></div><div class="ttdeci">@ CH3</div><div class="ttdef"><b>Definition</b> <a href="analog__io__mcu_8h_source.html#l00035">analog_io_mcu.h:34</a></div></div>
+<div class="ttc" id="agroup___analog___i_o_html_gga4ebdf50515e5d73c58c24fd1491770dcae574b39c34bd88c27ea641014831e53a"><div class="ttname"><a href="group___analog___i_o.html#gga4ebdf50515e5d73c58c24fd1491770dcae574b39c34bd88c27ea641014831e53a">CH2</a></div><div class="ttdeci">@ CH2</div><div class="ttdef"><b>Definition</b> <a href="analog__io__mcu_8h_source.html#l00033">analog_io_mcu.h:33</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga2d103b0bfc6281c22588fb656fb88988"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga2d103b0bfc6281c22588fb656fb88988">BuzzerInit</a></div><div class="ttdeci">void BuzzerInit(gpio_t pin)</div><div class="ttdoc">Buzzer initialization.</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8c_source.html#l00043">buzzer.c:43</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga5044339a4b4f968150ea884a334ddbd8"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga5044339a4b4f968150ea884a334ddbd8">BuzzerOff</a></div><div class="ttdeci">void BuzzerOff(void)</div><div class="ttdoc">Turn off the buzzer.</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8c_source.html#l00053">buzzer.c:53</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga5c945426454a12192b5dd46a36f45310"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga5c945426454a12192b5dd46a36f45310">BuzzerOn</a></div><div class="ttdeci">void BuzzerOn(void)</div><div class="ttdoc">Turn on the buzzer.</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8c_source.html#l00049">buzzer.c:49</a></div></div>
+<div class="ttc" id="agroup___g_i_o_p_html_ggaf65604147d0244c9b13cfdc865ad5393a426d08ab85ab3aebbb53eed1a32dfb71"><div class="ttname"><a href="group___g_i_o_p.html#ggaf65604147d0244c9b13cfdc865ad5393a426d08ab85ab3aebbb53eed1a32dfb71">GPIO_3</a></div><div class="ttdeci">@ GPIO_3</div><div class="ttdef"><b>Definition</b> <a href="gpio__mcu_8h_source.html#l00055">gpio_mcu.h:55</a></div></div>
+<div class="ttc" id="agroup___g_i_o_p_html_ggaf65604147d0244c9b13cfdc865ad5393a8bdaec9182fb8ab2106d5c67f3eabd2d"><div class="ttname"><a href="group___g_i_o_p.html#ggaf65604147d0244c9b13cfdc865ad5393a8bdaec9182fb8ab2106d5c67f3eabd2d">GPIO_9</a></div><div class="ttdeci">@ GPIO_9</div><div class="ttdef"><b>Definition</b> <a href="gpio__mcu_8h_source.html#l00061">gpio_mcu.h:61</a></div></div>
+<div class="ttc" id="agroup___g_i_o_p_html_ggaf65604147d0244c9b13cfdc865ad5393abbea21b656f1917800d9d279b685f38e"><div class="ttname"><a href="group___g_i_o_p.html#ggaf65604147d0244c9b13cfdc865ad5393abbea21b656f1917800d9d279b685f38e">GPIO_2</a></div><div class="ttdeci">@ GPIO_2</div><div class="ttdef"><b>Definition</b> <a href="gpio__mcu_8h_source.html#l00054">gpio_mcu.h:54</a></div></div>
+<div class="ttc" id="agroup___h_c___s_r04_html_ga73a5aaa2183e55d104d4e0c2c435e251"><div class="ttname"><a href="group___h_c___s_r04.html#ga73a5aaa2183e55d104d4e0c2c435e251">HcSr04ReadDistanceInCentimeters</a></div><div class="ttdeci">uint16_t HcSr04ReadDistanceInCentimeters(void)</div><div class="ttdoc">Read distance.</div><div class="ttdef"><b>Definition</b> <a href="hc__sr04_8c_source.html#l00045">hc_sr04.c:45</a></div></div>
+<div class="ttc" id="agroup___h_c___s_r04_html_ga9d26cc017fe45c607d08231ebffb46c4"><div class="ttname"><a href="group___h_c___s_r04.html#ga9d26cc017fe45c607d08231ebffb46c4">HcSr04Init</a></div><div class="ttdeci">bool HcSr04Init(gpio_t echo, gpio_t trigger)</div><div class="ttdoc">Driver for reading distance with HC-SR04 module.</div><div class="ttdef"><b>Definition</b> <a href="hc__sr04_8c_source.html#l00034">hc_sr04.c:34</a></div></div>
+<div class="ttc" id="agroup___l_e_d_html_ga4fd07c9f7fab15d0d07389a38f4a39d8"><div class="ttname"><a href="group___l_e_d.html#ga4fd07c9f7fab15d0d07389a38f4a39d8">LedOff</a></div><div class="ttdeci">uint8_t LedOff(led_t led)</div><div class="ttdoc">Turn off a specific LED.</div><div class="ttdef"><b>Definition</b> <a href="led_8c_source.html#l00065">led.c:65</a></div></div>
+<div class="ttc" id="agroup___l_e_d_html_ga883021aaef65f080a52b1852172ecbc3"><div class="ttname"><a href="group___l_e_d.html#ga883021aaef65f080a52b1852172ecbc3">LedOn</a></div><div class="ttdeci">uint8_t LedOn(led_t led)</div><div class="ttdoc">Turn on a specific LED.</div><div class="ttdef"><b>Definition</b> <a href="led_8c_source.html#l00046">led.c:46</a></div></div>
+<div class="ttc" id="agroup___l_e_d_html_gacba669c3e8f52e45d1bea50c2e63b250"><div class="ttname"><a href="group___l_e_d.html#gacba669c3e8f52e45d1bea50c2e63b250">LedsInit</a></div><div class="ttdeci">uint8_t LedsInit(void)</div><div class="ttdoc">ESP-EDU LEDs initialization.</div><div class="ttdef"><b>Definition</b> <a href="led_8c_source.html#l00031">led.c:31</a></div></div>
+<div class="ttc" id="agroup___l_e_d_html_ggab6831a7d06c0a2bc69f9b024f6445a80a00af6b2437d9982f1f125d2cc2537c41"><div class="ttname"><a href="group___l_e_d.html#ggab6831a7d06c0a2bc69f9b024f6445a80a00af6b2437d9982f1f125d2cc2537c41">LED_2</a></div><div class="ttdeci">@ LED_2</div><div class="ttdef"><b>Definition</b> <a href="led_8h_source.html#l00033">led.h:33</a></div></div>
+<div class="ttc" id="agroup___l_e_d_html_ggab6831a7d06c0a2bc69f9b024f6445a80a11a9adb9054de1fe01d6a6750075f57b"><div class="ttname"><a href="group___l_e_d.html#ggab6831a7d06c0a2bc69f9b024f6445a80a11a9adb9054de1fe01d6a6750075f57b">LED_1</a></div><div class="ttdeci">@ LED_1</div><div class="ttdef"><b>Definition</b> <a href="led_8h_source.html#l00034">led.h:34</a></div></div>
+<div class="ttc" id="agroup___l_e_d_html_ggab6831a7d06c0a2bc69f9b024f6445a80a3e1b1af0f74f675e4eb7bd18229adfd3"><div class="ttname"><a href="group___l_e_d.html#ggab6831a7d06c0a2bc69f9b024f6445a80a3e1b1af0f74f675e4eb7bd18229adfd3">LED_3</a></div><div class="ttdeci">@ LED_3</div><div class="ttdef"><b>Definition</b> <a href="led_8h_source.html#l00032">led.h:32</a></div></div>
+<div class="ttc" id="agroup___timer_html_ga0b1779c5b8f91cc83c8bfd127071ea2f"><div class="ttname"><a href="group___timer.html#ga0b1779c5b8f91cc83c8bfd127071ea2f">TimerStart</a></div><div class="ttdeci">void TimerStart(timer_mcu_t timer)</div><div class="ttdoc">Start timer count.</div><div class="ttdef"><b>Definition</b> <a href="timer__mcu_8c_source.html#l00116">timer_mcu.c:116</a></div></div>
+<div class="ttc" id="agroup___timer_html_gae8617c0d176463a60441464ad26563f6"><div class="ttname"><a href="group___timer.html#gae8617c0d176463a60441464ad26563f6">TimerInit</a></div><div class="ttdeci">void TimerInit(timer_config_t *timer_ini)</div><div class="ttdoc">Timer initialization.</div><div class="ttdef"><b>Definition</b> <a href="timer__mcu_8c_source.html#l00067">timer_mcu.c:67</a></div></div>
+<div class="ttc" id="agroup___timer_html_ggacc4e64394d03a6e790f8e52c674534d9a179b1231f027eba52fa4ef94ec174598"><div class="ttname"><a href="group___timer.html#ggacc4e64394d03a6e790f8e52c674534d9a179b1231f027eba52fa4ef94ec174598">TIMER_A</a></div><div class="ttdeci">@ TIMER_A</div><div class="ttdef"><b>Definition</b> <a href="timer__mcu_8h_source.html#l00032">timer_mcu.h:32</a></div></div>
+<div class="ttc" id="agroup___timer_html_ggacc4e64394d03a6e790f8e52c674534d9a7537925211db58591cb5eeb7ebc7f44f"><div class="ttname"><a href="group___timer.html#ggacc4e64394d03a6e790f8e52c674534d9a7537925211db58591cb5eeb7ebc7f44f">TIMER_B</a></div><div class="ttdeci">@ TIMER_B</div><div class="ttdef"><b>Definition</b> <a href="timer__mcu_8h_source.html#l00033">timer_mcu.h:33</a></div></div>
+<div class="ttc" id="agroup___timer_html_ggacc4e64394d03a6e790f8e52c674534d9a77982cc924eb33d3ea2f8f541f757f9d"><div class="ttname"><a href="group___timer.html#ggacc4e64394d03a6e790f8e52c674534d9a77982cc924eb33d3ea2f8f541f757f9d">TIMER_C</a></div><div class="ttdeci">@ TIMER_C</div><div class="ttdef"><b>Definition</b> <a href="timer__mcu_8h_source.html#l00035">timer_mcu.h:34</a></div></div>
+<div class="ttc" id="agroup___u_a_r_t_html_ga440f6a03dfd8b310f5fdf42c3bf20c42"><div class="ttname"><a href="group___u_a_r_t.html#ga440f6a03dfd8b310f5fdf42c3bf20c42">UartInit</a></div><div class="ttdeci">void UartInit(serial_config_t *port_config)</div><div class="ttdoc">Serial port initialization.</div><div class="ttdef"><b>Definition</b> <a href="uart__mcu_8c_source.html#l00107">uart_mcu.c:107</a></div></div>
+<div class="ttc" id="agroup___u_a_r_t_html_ga60db217694ea24ad75fcedda3336a3a8"><div class="ttname"><a href="group___u_a_r_t.html#ga60db217694ea24ad75fcedda3336a3a8">UartSendString</a></div><div class="ttdeci">void UartSendString(uart_mcu_port_t port, const char *msg)</div><div class="ttdoc">Send a String trough serial port.</div><div class="ttdef"><b>Definition</b> <a href="uart__mcu_8c_source.html#l00193">uart_mcu.c:193</a></div></div>
+<div class="ttc" id="agroup___u_a_r_t_html_gga6e1a445bae87c4cfd26710dbd4657b77af81669fbb473eedf3d1789fcf08d9056"><div class="ttname"><a href="group___u_a_r_t.html#gga6e1a445bae87c4cfd26710dbd4657b77af81669fbb473eedf3d1789fcf08d9056">UART_PC</a></div><div class="ttdeci">@ UART_PC</div><div class="ttdef"><b>Definition</b> <a href="uart__mcu_8h_source.html#l00032">uart_mcu.h:32</a></div></div>
+<div class="ttc" id="ahc__sr04_8h_html"><div class="ttname"><a href="hc__sr04_8h.html">hc_sr04.h</a></div></div>
+<div class="ttc" id="aili9341_8c_html_a070d2ce7b6bb7e5c05602aa8c308d0c4"><div class="ttname"><a href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></div><div class="ttdeci">#define NULL</div><div class="ttdef"><b>Definition</b> <a href="ili9341_8c_source.html#l00019">ili9341.c:19</a></div></div>
+<div class="ttc" id="aled_8h_html"><div class="ttname"><a href="led_8h.html">led.h</a></div></div>
+<div class="ttc" id="astructanalog__input__config__t_html"><div class="ttname"><a href="structanalog__input__config__t.html">analog_input_config_t</a></div><div class="ttdoc">Analog inputs config structure.</div><div class="ttdef"><b>Definition</b> <a href="analog__io__mcu_8h_source.html#l00048">analog_io_mcu.h:48</a></div></div>
+<div class="ttc" id="astructserial__config__t_html"><div class="ttname"><a href="structserial__config__t.html">serial_config_t</a></div><div class="ttdoc">Serial port configuration struct.</div><div class="ttdef"><b>Definition</b> <a href="uart__mcu_8h_source.html#l00038">uart_mcu.h:38</a></div></div>
+<div class="ttc" id="astructserial__config__t_html_a27067c816e8c5402c7be0da9780678b0"><div class="ttname"><a href="structserial__config__t.html#a27067c816e8c5402c7be0da9780678b0">serial_config_t::port</a></div><div class="ttdeci">uart_mcu_port_t port</div><div class="ttdef"><b>Definition</b> <a href="uart__mcu_8h_source.html#l00039">uart_mcu.h:39</a></div></div>
+<div class="ttc" id="astructtimer__config__t_html"><div class="ttname"><a href="structtimer__config__t.html">timer_config_t</a></div><div class="ttdoc">Timer configuration struct.</div><div class="ttdef"><b>Definition</b> <a href="timer__mcu_8h_source.html#l00039">timer_mcu.h:39</a></div></div>
+<div class="ttc" id="astructtimer__config__t_html_ab83043b8038c5e630f6a2a05ea007e49"><div class="ttname"><a href="structtimer__config__t.html#ab83043b8038c5e630f6a2a05ea007e49">timer_config_t::timer</a></div><div class="ttdeci">timer_mcu_t timer</div><div class="ttdef"><b>Definition</b> <a href="timer__mcu_8h_source.html#l00040">timer_mcu.h:40</a></div></div>
+<div class="ttc" id="atimer__mcu_8h_html"><div class="ttname"><a href="timer__mcu_8h.html">timer_mcu.h</a></div></div>
+<div class="ttc" id="auart__mcu_8h_html"><div class="ttname"><a href="uart__mcu_8h.html">uart_mcu.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d9edf6c004b4a7ff14fe9ae7a92214ee.html">firmware</a></li><li class="navelem"><a class="el" href="dir_429d80758da54da73083af4edd40d0b3.html">projects</a></li><li class="navelem"><a class="el" href="dir_758cc310225863198852537e26b20fc6.html">examen_individual</a></li><li class="navelem"><a class="el" href="dir_696fffe1777dfb43559b8a8fc5425925.html">main</a></li><li class="navelem"><a class="el" href="examen__individual_8c.html">examen_individual.c</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0 </li>
+  </ul>
+</div>
+</body>
+</html>
