@@ -63,7 +63,7 @@ void medirAceleracion(void *pvParameter)
 	AnalogInputReadSingle(CH2, &ac_y);
 	AnalogInputReadSingle(CH3, &ac_z);
 	variableAuxiliar = ac_x + ac_y + ac_z;
-	if (variableAuxiliar > 4000)
+	if (variableAuxiliar > 2850)
 	{
 		UartSendString(UART_PC, "caida detectada\n");
 	}
